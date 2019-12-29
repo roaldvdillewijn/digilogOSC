@@ -1,0 +1,2361 @@
+{
+	"cathedral": {
+		"number": 11,
+		"name":"Cathedral",
+    "id":"cathedral",
+    "online":1,
+    "type":"Reverb",
+		"param": {
+			"blend": {
+				"number":1,
+				"type":"range",
+				"min":0,
+				"max":255,
+        "name":"Blend"
+		  },
+      "reverbtime": {
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Reverb Time"
+      },
+      "damping": {
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Damping"
+      },
+      "feedback": {
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Feedback"
+      },
+      "predelay": {
+        "number":5,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Pre Delay"
+      },
+      "mode": {
+        "number":11,
+        "type":"select",
+        "menuItems": ["Grail Spring","Accu Spring","Hall","Room","Plate","Reverse","Grail Flerb","Echo"],
+        "name":"Mode"
+      },
+      "bypass": {
+        "number":10,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass"
+      },
+      "infinite": {
+        "number":13,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Infinite"
+      },
+      "tap": {
+        "number":9,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3],
+        "value":1,
+        "name":"Tap",
+        "label":"Tap",
+        "dual":0
+      },
+      "save": {
+        "number":12,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "value":1,
+        "name":"Save",
+        "dual":1,
+        "label":"Presets"
+      },
+      "load": {
+        "number":8,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "value":1,
+        "dual":0,
+        "name":"Load"
+      },
+      "bpm": {
+        "number":14,
+        "type":"hidden",
+        "min":50,
+        "max":255,
+        "name":"BPM"
+      },
+      "potstate": {
+        "number":15,
+        "type":"hidden",
+        "name":"Potstate"
+      },
+      "potSend": {
+        "number":16,
+        "type":"checkbox",
+        "double":"l",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "momlatch": {
+        "number":18,
+        "type":"checkbox",
+        "double":"r",
+        "moveOptions":[0],
+        "min":0,
+        "max":1,
+        "name":"MomLatch"
+      },
+      "internalPot": {
+        "number":17,
+        "type":"hidden"
+      }
+	 }
+  },
+  "canyon": {
+    "number":19,
+    "name":"Canyon",
+    "id":"canyon",
+    "online":1,
+    "type":"Delay",
+    "param": {
+      "fxlevel":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"FX Level"
+      },
+      "delay": {
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Delay"
+      },
+      "feedback": {
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Feedback"
+      },
+      "mode": {
+        "number":3,
+        "type":"select",
+        "menuItems":["Echo","Mod","Multi","Reverse","DMM","Tape","Verb","Oct","Shim","S/H","Loop"],
+        "name":"Mode"
+      },
+      "tapdivide":{
+        "number":5,
+        "type":"button",
+        "moveOptions":[0],
+        "min":0,
+        "max":1,
+        "value":1,
+        "dual":0,
+        "label":"Tap Divide",
+        "name":"Tap Divide"
+      },
+      "bypass": {
+        "number":6,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "min":0,
+        "double":"l",
+        "max":1,
+        "name":"Bypass"
+      },
+      "secondary":{
+        "number":7,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Secondary"
+      },
+      "potState": {
+        "number":8,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":9,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "internalPot": {
+        "number":10,
+        "type":"hidden"
+      }
+    }
+  },
+  "oceans": {
+    "number":22,
+    "name":"Oceans 11",
+    "id":"oceans",
+    "type":"Reverb",
+    "online":1,
+    "param": {
+      "fxlevel":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"FX Level"
+      },
+      "time": {
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Time"
+      },
+      "tone": {
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Tone"
+      },
+      "mode": {
+        "number":3,
+        "type":"select",
+        "menuItems":["Hall","Spring","Plate","Reverse","Echo","Trem","Mod","Dyna","Audo-INF","Shim","Poly"],
+        "name":"Reverb Mode"
+      },
+      "tapdivide":{
+        "number":5,
+        "type":"button",
+        "moveOptions":[0],
+        "min":0,
+        "max":1,
+        "value":1,
+        "dual":0,
+        "label":"Mode",
+        "name":"Mode"
+      },
+      "bypass": {
+        "number":6,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "min":0,
+        "double":"l",
+        "max":1,
+        "name":"Bypass"
+      },
+      "secondary":{
+        "number":7,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Secondary"
+      },
+      "potState": {
+        "number":8,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":9,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "internalPot": {
+        "number":10,
+        "type":"hidden"
+      }
+    }
+  },
+  "riddle": {
+    "number":18,
+    "name":"Riddle",
+    "id":"riddle",
+    "type":"Filter",
+    "online":0,
+    "param":{
+      "blend":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Blend"
+      },
+      "mode":{
+        "number":2,
+        "type":"select",
+        "menuItems":["LP","BP","HP"],
+        "name":"Mode"
+      },
+      "attack":{
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Attack"
+      },
+      "decay":{
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Decay"
+      },
+      "start":{
+        "number":5,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Start"
+      },
+      "stop":{
+        "number":6,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Stop"
+      },
+      "q":{
+        "number":7,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Q"
+      },
+      "sensitivity":{
+        "number":8,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Sensitivity"
+      },
+      "distortion": { 
+        "number":9,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "name":"Distortion",
+        "min":0,
+        "max":1
+      },
+      "bypass": { 
+        "number":10,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass",
+        "min":0,
+        "max":1
+      },
+      "potState": {
+        "number":11,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":12,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "internalPot": {
+        "number":13,
+        "type":"hidden"
+      }
+    }
+  },
+  "superego": {
+    "number": 8,
+    "name":"SuperEgo",
+    "id":"superego",
+    "type":"Synthesis",
+    "online":1,
+    "param": {
+      "speed":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Speed"
+      },
+      "gliss":{
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Gliss"  
+      },
+      "direct":{
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Direct"  
+      },
+      "effect":{
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Effect"  
+      },
+      "bypass":{
+        "number":5,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,3,4],
+        "min":0,
+        "max":1,
+        "name":"Bypass"
+      },
+      "trigger":{
+        "number":10,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "value":1,
+        "dual":0,
+        "name":"Trigger",
+        "label":"Trigger" 
+      },
+      "mode":{
+        "number":6,
+        "type":"select",
+        "menuItems":["Momentary","Auto","Latch"],
+        "name":"Mode"
+      },
+      "potstate": {
+        "number":7,
+        "type":"hidden",
+        "name":"Potstate"
+      },
+      "potSend": {
+        "number":8,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "internalPot": {
+        "number":9,
+        "type":"hidden"
+      }
+    }
+  },
+  "memoryboy":{
+    "number":12,
+    "name":"Deluxe Memory Boy",
+    "id":"memoryboy",
+    "type":"Delay",
+    "online":0,
+    "param":{
+      "blend": {
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Blend"
+      },
+      "gain":{
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Gain"
+      },
+      "rate":{
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Rate"
+      },
+      "depth":{
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Depth"
+      },
+      "feedback": {
+        "number":5,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Feedback"
+      },
+      "delay": { 
+        "number":6,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Delay"
+      },
+      "bypass": { 
+        "number":8,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass",
+        "min":0,
+        "max":1
+      },
+      "expression": { 
+        "number":7,
+        "type":"select",
+        "menuItems":["Off","Rate","Depth","Feedback","Delay"],
+        "name":"Exp. Mode"
+      },
+      "tapdivide": { 
+        "number":9,
+        "type":"select",
+        "menuItems":["Normal","8.","4^3","8","8^3","16"],
+        "name":"Tap Divide"
+      },
+      "tap": { 
+        "number":11,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "name":"Tap",
+        "label":"Tap",
+        "dual":0
+      },
+      "dividesequence": { 
+        "number":10,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "value":1,
+        "name":"Div. Sequence",
+        "label":"Div. Sequence",
+        "dual":0
+      }, 
+      "bpm": { 
+        "number":12,
+        "type":"hidden",
+        "min":50,
+        "max":255,
+        "name":"BPM"
+      },
+      "potState": { 
+        "number":13,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":14,
+        "type":"checkbox",
+        "moveOptions":[0],
+        "double":"l",
+        "min":0,
+        "max":1,
+        "name":"PotSend"
+      },
+      "momlatch": {
+        "number":16,
+        "type":"checkbox",
+        "moveOptions":[0],
+        "double":"r",
+        "min":0,
+        "max":1,
+        "name":"MomLatch"
+      },
+      "internalPot": {
+        "number":15,
+        "type":"hidden"
+      }
+    }
+  },
+  "pitchfork":{
+    "number":9,
+    "name":"Pitch Fork",
+    "id":"pitchfork",
+    "type":"Pitch Shift",
+    "online":1,
+    "param":{
+      "blend":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Blend"
+      },
+      "pitch":{
+        "number":2,
+        "type":"select",
+        "menuItems":["D","m2","M2","M3","P4","P5","M6","m7","1","2","3"],
+        "name":"Pitch"
+      },
+      "bypass":{
+        "number":3,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass",
+        "double":"l",
+        "min":0,
+        "max":1
+      },
+      "expression":{
+        "number":5,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "double":"r",
+        "min":0,
+        "max":1,
+        "name":"Expression"
+      },
+      "mode":{
+        "number":4,
+        "type":"select",
+        "menuItems":["Up","Down","Up/Down"],
+        "name":"Mode"
+      },
+      "exppot":{
+        "number":6,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Expression"
+      },
+      "potState":{
+        "number":7,
+        "type":"hidden"
+      },
+      "abspitch":{
+        "number":8,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":9,
+        "type":"checkbox",
+        "moveOptions":[0],
+        "min":0,
+        "max":1,
+        "name":"PotSend"
+      },
+      "internalPot": {
+        "number":10,
+        "type":"hidden"
+      }
+    }
+  },
+  "pulsar":{
+    "number":10,
+    "name":"Super Pulsar",
+    "id":"pulsar",
+    "type":"Tremolo",
+    "online":1,
+    "param":{
+      "volume":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Volume"
+      },
+      "phase": {
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Phase"
+      },
+      "wave": {
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Wave"
+      },
+      "shape": {
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Shape"
+      },
+      "depth": {
+        "number":5,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Depth"
+      },
+      "rate": {
+        "number":6,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Rate"
+      },
+      "bypass": {
+        "number":7,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "min":0,
+        "double":"l",
+        "max":1,
+        "name":"Bypass"
+      },
+      "waveinvert": {
+        "number":8,
+        "type":"checkbox",
+        "moveOptions":[0,1,2,4],
+        "min":0,
+        "double":"r",
+        "max":1,
+        "name":"Wave Invert"
+      },
+      "xrate": {
+        "number":10,
+        "type":"select",
+        "menuItems":["1","2.","3"],
+        "name":"xRate"
+      },
+      "expression": {
+        "number":9,
+        "type":"select",
+        "menuItems":["Off","Rate","Depth","Shape","Phase","Vol"],
+        "name":"Exp. Mode"
+      },
+      "bpm": {
+        "number":11,
+        "type":"hidden",
+        "min":50,
+        "max":255,
+        "name":"BPM"
+      },
+      "pulse": {
+        "number":12,
+        "type":"button",
+        "moveOptions":[0,3,4],
+        "value":1,
+        "min":0,
+        "max":1,
+        "name":"Pulse",
+        "label":"Pulse",
+        "dual":0
+      },
+      "potState": {
+        "number":13,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":14,
+        "type":"checkbox",
+        "moveOptions":[0],
+        "value":1,
+        "name":"PotSend",
+        "min":0,
+        "max":1
+      },
+      "internalPot": {
+        "number":15,
+        "type":"hidden"
+      }
+    }
+  },
+  "looper":{
+    "number":16,
+    "name":"22500",
+    "id":"looper",
+    "online":1,
+    "type":"Looper",
+    "param":{
+      "lpavol": { 
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Loop A"
+      },
+      "lpbvol": { 
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Loop B"
+      },
+      "lpa": { 
+        "number":3,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "dual":1,
+        "label":"Footswitches",
+        "name":"Loop A"
+      },
+      "lpb": { 
+        "number":4,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "dual":0,
+        "name":"Loop B"
+      },
+      "stop": { 
+        "number":5,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "value":1,
+        "dual":0,
+        "name":"Stop",
+        "label":"stop"
+      },
+      "unda": { 
+        "number":15,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "label":"Undo",
+        "value":1,
+        "dual":1,
+        "name":"Undo A"
+      },
+      "undb": { 
+        "number":16,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "value":1,
+        "dual":0,
+        "name":"Undo B"
+      },
+      "origtemp": { 
+        "number":17,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "label":"Tempo",
+        "value":1,
+        "dual":0,
+        "name":"Original Tempo"
+      },
+      "rotinc": { 
+        "number":6,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "dual":2,
+        "label":"Rotary",
+        "name":"Rot. Inc."
+      },
+      "rotdec": { 
+        "number":7,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "dual":1,
+        "name":"Rot. Dec."
+      },
+      "rotclick": { 
+        "number":8,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "dual":0,
+        "name":"Rot. Click"
+      },
+      "reva": {
+        "number":9,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,1,2,4],
+        "double":"l",
+        "name":"Reverse A"
+      },
+      "revb": {
+        "number":10,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Reverse B"
+      },
+      "octa": { 
+        "number":11,
+        "type":"select",
+        "menuItems":["Off","Down","Up"],
+        "name":"Octave A"
+      },
+      "octb": {  
+        "number":12,
+        "type":"select",
+        "menuItems":["Off","Down","Up"],
+        "name":"Octave B"
+      },
+      "changebank": { 
+        "number":13,
+        "type":"number",
+        "min":0,
+        "max":99,
+        "name":"Bank"
+      },
+      "changemenu": { 
+        "number":14,
+        "type":"select",
+        "menuItems":["R Tempo","R Type","R Level","R Copy","Erase","Trigger B","Trigger A","Overdub","Loop B 1 Shot","Loop A 1 Shot","Loop Mode","Bank"],
+        "name":"Menu"
+      },
+      "changetempo": { 
+        "number":18,
+        "type":"number",
+        "min":30,
+        "max":255,
+        "name":"Tempo"
+      },
+      "settempo": { 
+        "number":19,
+        "type":"hidden"
+      },
+      "erase": { 
+        "number":20,
+        "type":"select",
+        "menuItems":["A","B","Both"],
+        "name":"Erase"
+      },
+      "potState": { 
+        "number":21,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":22,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "internalPot": {
+        "number":23,
+        "type":"hidden"
+      },
+      "currentErase": {
+        "number":24,
+        "type":"select",
+        "menuItems":["none","A","B","A+B"],
+        "name":"Erase Current Loop"
+      }
+    }
+  },
+  "looplooper": {
+    "number":23,
+    "name":"Loop Looper",
+    "id":"looplooper",
+    "online":0,
+    "param": {
+      "switch": {
+        "number":1,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[1],
+        "name":"Switch"
+      }
+    }
+  },
+  "ringthing":{
+    "number":14,
+    "name":"Ring Thing",
+    "id":"ringthing",
+    "type":"Ring Modulation",
+    "online":1,
+    "param":{
+      "blend":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Blend"
+      },
+      "wave":{
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Wave"
+      },
+      "filter":{
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Filter"
+      },
+      "fine":{
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Fine"
+      },
+      "coarse":{
+        "number":5,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Coarse"
+      },
+      "pitch": {
+        "number":12,
+        "type":"range",
+        "min":0,
+        "max":48,
+        "name":"Pitch"
+      },
+      "presetnumber":{
+        "number":7,
+        "type":"select",
+        "menuItems":["0","1","2","3","4","5","6","7","8","9"],
+        "name":"Preset",
+        "label":1
+      },
+      "preset":{
+        "number":8,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "dual":0,
+        "value":1,
+        "name":"Select Preset"
+      },
+      "mode":{
+        "number":6,
+        "type":"select",
+        "menuItems":["RM","UB","LB","PS"],
+        "name":"Mode"
+      },
+      "tune":{
+        "number":9,
+        "type":"hidden"
+      },
+      "autotune": {
+        "number":9,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"AutoTune"
+      },
+      "bypass": {
+        "number":10,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass"
+      },
+      "potSend": {
+        "number":13,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "momlatch": {
+        "number":15,
+        "type":"checkbox",
+        "moveOptions":[0],
+        "double":"r",
+        "min":0,
+        "max":1,
+        "name":"MomLatch"
+      },
+      "potState":{
+        "number":11,
+        "type":"hidden"
+      },
+      "internalPot": {
+        "number":14,
+        "type":"hidden"
+      }
+    }
+  },
+  "dddelay":{
+    "number":13,
+    "name":"DD-20",
+    "id":"dddelay",
+    "type":"Delay",
+    "online":0,
+    "param":{
+      "elevel":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"E.Level"
+      },
+      "feedback":{
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Feedback"
+      },
+      "tone":{
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Tone"
+      },
+      "mode":{
+        "number":4,
+        "type":"select",
+        "menuItems":["SOS","Twist","Warp","Tape","Analog","Standard","Dual","Pan","Smooth","Modulate","Reverse"],
+        "name":"Mode"
+      },
+      "delay":{
+        "number":5,
+        "type":"number",
+        "min":1,
+        "max":16000,
+        "name":"Delay"
+      },
+      "tempo":{
+        "number":6,
+        "type":"select",
+        "menuItems":["1","2.","2","4.","2^3","4","8.","8^3","8","8^3"],
+        "name":"Tempo"
+      },
+      "bypass":{
+        "number":7,
+        "type":"hidden"
+      },
+      "on": {
+        "number":7,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass"
+      },
+      "tap":{
+        "number":8,
+        "type":"button",
+        "moveOptions":[0,3,4],
+        "value":1,
+        "label":"Tap",
+        "dual":0,
+        "name":"Tap"
+      },
+      "bpm":{
+        "number":9,
+        "type":"hidden",
+        "min":1,
+        "max":300,
+        "name":"BPM"
+      },
+      "delayup":{
+        "number":10,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "label":"DelayKnob",
+        "dual":1,
+        "name":"Delay Up"
+      },
+      "delaydown":{
+        "number":11,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3],
+        "value":1,
+        "dual":0,
+        "name":"Delay Down"
+      },
+      "holdOn": {
+        "number":12,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,1,2,3,4],
+        "name":"Delay Hold"
+      },
+      "potState":{
+        "number":13,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":14,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "value":1,
+        "name":"PotSend",
+        "label":"PotSend",
+        "dual":0
+      },
+      "internalPot": {
+        "number":15,
+        "type":"hidden"
+      }
+    }
+  },
+  "cvswitcher":{
+    "number":15,
+    "name":"CV switch",
+    "id":"cvswitch",
+    "online":0,
+    "param":{
+      "8pf":{
+        "number":1,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"8 Step -> Pitch Fork"
+      },
+      "8mb":{
+        "number":2,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"8 Step -> Memory Boy"
+      },
+      "8pu":{
+        "number":3,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"8 Step -> Super Pulsar"
+      },
+      "8re":{
+        "number":4,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"8 Step -> Ring Thing Exp"
+      },
+      "8rm":{
+        "number":5,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"8 Step -> Ring Thing Mod"
+      },
+      "88s":{
+        "number":6,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"8 Step -> 8 Step"
+      },
+      "8n1":{
+        "number":7,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"8 Step -> Riddle"
+      },
+      "8n2":{
+        "number":8,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"8 Step -> NS1"
+      },
+      "1pf":{
+        "number":9,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"NS1 -> Pitch Fork"
+      },
+      "1mb":{
+        "number":10,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"NS1 -> Memory Boy"
+      },
+      "1pu":{
+        "number":11,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"NS1 -> Super Pulsar"
+      },
+      "1re":{
+        "number":12,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"NS1 -> Ring Thing Exp"
+      },
+      "1rm":{
+        "number":13,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"NS1 -> Ring Thing Mod"
+      },
+      "18s":{
+        "number":14,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"NS1 -> 8 Step"
+      },
+      "1n1":{
+        "number":15,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"NS1 -> Riddle"
+      },
+      "1n2":{
+        "number":16,
+        "type":"select",
+        "menuItems":["off","on"],
+        "name":"NS1 -> NS1"
+      }
+    }
+  },
+  "bigmuff":{
+    "number":32,
+    "name":"Big Muff",
+    "id":"bigmuff",
+    "type":"Distortion",
+    "online":0,
+    "param":{
+      "bypass": {
+        "number":"9",
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,1,2],
+        "name":"Bypass"
+      }
+    }
+  },
+  "chillswitch":{
+    "number":33,
+    "name":"Chill Switch",
+    "id":"chillswitch",
+    "online":0,
+    "param":{
+      "bypass": {
+        "number":9,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,1,2],
+        "name":"Bypass"
+      }
+    }
+  },
+  "rclooper":{
+    "number":17,
+    "name":"RC-2",
+    "id":"rclooper",
+    "type":"Looper",
+    "online":0,
+    "param":{
+      "phraselevel":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Phrase Level"
+      },
+      "guidelevel":{
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Guide Level"
+      },
+      "phraseselect":{
+        "number":3,
+        "type":"select",
+        "menuItems":["1","2","3","4","5","6","7","8","9","10","11"],
+        "name":"Phrase Select"
+      },
+      "loop":{
+        "number":"4a",
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "dual":1,
+        "label":"Loop",
+        "name":"Loop"
+      },
+      "overdub":{
+        "number":"4b",
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "dual":0,
+        "name":"Overdub"
+      },
+      "extswitch":{
+        "number":5,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "dual":0,
+        "label":"Stop",
+        "name":"Stop"
+      },
+      "taptempo":{
+        "number":6,
+        "type":"button",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,3,4],
+        "value":1,
+        "label":"Tap",
+        "dual":0,
+        "name":"Tap"
+      },
+      "bpm":{
+        "number":7,
+        "type":"hidden",
+        "min":30,
+        "max":300,
+        "name":"BPM"
+      },
+      "potState": {
+        "number":8,
+        "type":"hidden"
+      },
+      "potSend": {
+        "number":9,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "internalPot": {
+        "number":10,
+        "type":"hidden"
+      }
+    }
+  },
+  "eightstep": {
+    "number":3,
+    "name":"8 Step",
+    "id":"eightstep",
+    "online":0,
+    "midi":1,
+    "param": {
+      "stepone": {
+        "number":16,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Step 1"
+      },
+      "steptwo": {
+        "number":17,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Step 2"
+      },
+      "stepthree": {
+        "number":18,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Step 3"
+      },
+      "stepfour": {
+        "number":19,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Step 4"
+      },
+      "stepfive": {
+        "number":20,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Step 5"
+      },
+      "stepsix": {
+        "number":21,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Step 6"
+      },
+      "stepseven": {
+        "number":22,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Step 7"
+      },
+      "stepeight": {
+        "number":23,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Step 8"
+      },
+      "rate": {
+        "number":24,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Rate"
+      },
+      "glide": {
+        "number":25,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Glide"
+      },
+      "depth": {
+        "number":28,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Depth"
+      },
+      "expression": {
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Exp Pedal"
+      },
+      "steps": {
+        "number":27,
+        "type":"range",
+        "min":1,
+        "max":8,
+        "name":"Steps"
+      },
+      "currstep": {
+        "number":41,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Current Step"
+      },
+      "direction":{
+        "number":26,
+        "type":"select",
+        "menuItems":["Forward","Reverse","Bounce","Random"],
+        "name":"Direction"
+      },
+      "tapdivide":{
+        "number":29,
+        "type":"select",
+        "menuItems":["4th","8th.","4th3","8th","8th3","16th","32nd"],
+        "name":"Tap Divide"
+      },
+      "expmode":{
+        "number":30,
+        "type":"select",
+        "menuItems":["off","Rate","Depth","Glide","Seq Length","Ext Clock"],
+        "name":"Exp Mode"
+      },
+      "playmode":{
+        "number":31,
+        "type":"select",
+        "menuItems":["Loop","1-Shot","Step-Thru"],
+        "name":"Play Mode"
+      },
+      "encmode":{
+        "number":33,
+        "type":"select",
+        "menuItems":["Glide","Direction","Seq Length","Depth","Preset"],
+        "name":"Encoder Mode"
+      },
+      "play":{
+        "number":34,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"Play"
+      },
+      "reset":{
+        "number":35,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Reset"
+      },
+      "tap":{
+        "number":36,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"Tap"
+      },
+      "tapdivideb":{
+        "number":37,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Tap Divide"
+      },
+      "epxmodeb":{
+        "number":39,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"Exp Mode"
+      },
+      "encmodeb":{
+        "number":40,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Encode Mode"
+      }
+    }
+  },
+  "fivehundred": {
+    "number":4,
+    "name":"DD500",
+    "id":"fivehundred",
+    "type":"Delay",
+    "online":0,
+    "midi":1,
+    "param": {
+      "level":{
+        "number":19,
+        "type":"range",
+        "min":0,
+        "max":100,
+        "name":"E Level"
+      },
+      "feedback":{
+        "number":18,
+        "type":"range",
+        "min":0,
+        "max":100,
+        "name":"Feedback"
+      },
+      "tone":{
+        "number":20,
+        "type":"range",
+        "min":0,
+        "max":100,
+        "name":"Tone"
+      },
+      "moddepth":{
+        "number":21,
+        "type":"range",
+        "min":0,
+        "max":100,
+        "name":"Mod Depth"
+      },
+      "delay":{
+        "number":17,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Master Vol"
+      },
+      "expression":{
+        "number":16,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Expression"
+      },
+      "effa":{
+        "number":28,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"Effect A"
+      },
+      "effb":{
+        "number":29,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Effect B"
+      },
+      "tapctl":{
+        "number":82,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,1,2,4],
+        "name":"Tap/CTL"
+      },
+      "ctlone":{
+        "number":80,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"CTL 1"
+      },
+      "ctltwo":{
+        "number":81,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"CTL 2"
+      }
+    }
+  },
+  "hog": {
+    "number":2,
+    "name":"HOG2",
+    "id":"hog",
+    "online":0,
+    "type":"Pitch Shift",
+    "midi":1,
+    "param": {
+      "master":{
+        "number":7,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Master Vol"
+      },
+      "dry":{
+        "number":102,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Dry Output"
+      },
+      "twooctd":{
+        "number":103,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"-2 Oct"
+      },
+      "oneoctd":{
+        "number":104,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"-1 Oct"
+      },
+      "original":{
+        "number":105,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Original"
+      },
+      "fifthu":{
+        "number":106,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"+5th"
+      },
+      "oneoctu":{
+        "number":107,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"+1 Oct"
+      },
+      "oneoctyfifth":{
+        "number":108,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"+1 Oct + 5th"
+      },
+      "twooctu":{
+        "number":109,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"+2 Oct"
+      },
+      "twooctthirdu":{
+        "number":110,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"+2 Oct + 3rd"
+      },
+      "threeoct":{
+        "number":111,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"+3 Oct"
+      },
+      "fouroctu":{
+        "number":112,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"+4 Oct"
+      },
+      "envlow":{
+        "number":113,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Envelope Lower"
+      },
+      "envup":{
+        "number":114,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Envelope Upper"
+      },
+      "filtfreq":{
+        "number":115,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Filter Freq"
+      },
+      "filtres":{
+        "number":116,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Filter Res"
+      },
+      "expcoarse":{
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Exp. Coarse"
+      },
+      "expfine":{
+        "number":36,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Exp. Fine"
+      },
+      "freeze":{
+        "number":64,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Freeze+Gliss"
+      },
+      "bypass":{
+        "number":85,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass"
+      },
+      "envelope":{
+        "number":87,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Envelope"
+      },
+      "specgate":{
+        "number":88,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"Spectral Gate"
+      },
+      "expreverse":{
+        "number":90,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Exp Reverse"
+      },
+      "expmode":{
+        "number":89,
+        "type":"select",
+        "menuItems":["Octave Bend","Step Bend","Volume","Freeze+Gliss","Freeze+Vol","Wah Wah","Filter"],
+        "menuValues":[6,16,26,36,46,56,66],
+        "name":"Mode"
+      }
+    }
+  },
+  "whammy": {
+    "number":13,
+    "name":"Whammy",
+    "id":"whammy",
+    "type":"Pitch Shift",
+    "online":0,
+    "midi":1,
+    "param": {
+      "expression": {
+        "number":11,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Expression"
+      },
+      "mode": {
+        "number":1,
+        "type":"select",
+        "menuItems":["classic","chords"],
+        "name":"Mode"
+      },
+      "program": {
+        "number":2,
+        "type":"select",
+        "menuItems":["2-up","1-up","5th-up","4th-up","2nd-up","2nd-dn","4th-dn","5th-dn","1dn","dive-bomb","deep","shlw","4th-dn/3rd-up","4th-dn/5th-up","5th-dn/5th-up","5th-up/6th-up","5th-up/1-up","1-dn/4thdn","1-dn/1up","1-up/10th-up","1-up/2-up"],
+        "name":"Program"
+      },
+      "bypass" : {
+        "number":4,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass"
+      }
+    }
+  },
+  "volcabass": {
+    "number":4,
+    "name":"Volca Bass",
+    "id":"volcabass",
+    "online":0,
+    "midi":1,
+    "param": {
+      "slidetime":{
+        "number":5,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Slide Time"
+      },
+      "expression":{
+        "number":11,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Expression"
+      },
+      "lforate":{
+        "number":41,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"LFO Rate"
+      },
+      "lfoint":{
+        "number":42,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"LOF Int"
+      },
+      "vcopitchone":{
+        "number":43,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"VCO Pitch 1"
+      },
+      "vcopitchtwo":{
+        "number":44,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"VCO Pitch 2"
+      },
+      "vcopitchthree":{
+        "number":45,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"VCO Pitch 3"
+      },
+      "egattack":{
+        "number":46,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"EG Attack"
+      },
+      "egdecay":{
+        "number":47,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"EG Decay/Release"
+      },
+      "cutoffint":{
+        "number":48,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Cutoff EG Int"
+      },
+      "gatetime":{
+        "number":49,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Gate Time"
+      }
+    }
+  },
+  "volcafm": {
+    "number":1,
+    "name":"Volca FM",
+    "id":"volcafm",
+    "online":0,
+    "midi":1,
+    "param": {
+      "transpose":{
+        "number":40,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Transpose"
+      },
+      "velocity":{
+        "number":41,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Velocity"
+      },
+      "modulatorattack":{
+        "number":42,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Modulator Attack"
+      },
+      "modulatordecay":{
+        "number":43,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Modulator Decay"
+      },
+      "carrierattack":{
+        "number":44,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Carrier Attack"
+      },
+      "carrierdecay":{
+        "number":45,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Carrier Decay"
+      },
+      "lforate":{
+        "number":46,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"LFO Rate"
+      },
+      "lfopitchdepth":{
+        "number":47,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"LFO Pitch Depth"
+      },
+      "algorithm":{
+        "number":48,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Algorithm"
+      },
+      "arptype":{
+        "number":49,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Arp Type"
+      },
+      "arpdiv":{
+        "number":50,
+        "type":"range",
+        "min":0,
+        "max":127,
+        "name":"Arp Div"
+      }
+    }
+  },
+  "bossdelay":{
+    "number":20,
+    "name":"DD-2",
+    "id":"bossdelay",
+    "type":"Delay",
+    "online":0,
+    "param":{
+      "level":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Level"
+      },
+      "feedback":{
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Feedback"
+      },
+      "delay":{
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"Delay"
+      },
+      "mode":{
+        "number":4,
+        "type":"select",
+        "menuItems":["Short","Middle","Long","Hold"],
+        "name":"Mode"
+      },
+      "bypass":{
+        "number":5,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0,1,2,4],
+        "name":"Bypass"
+      },
+      "hold":{
+        "number":9,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Hold"
+      },
+      "potSend": {
+        "number":7,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"l",
+        "moveOptions":[0],
+        "name":"PotSend"
+      },
+      "internalPot": {
+        "number":8,
+        "type":"hidden"
+      },
+       "direct": {
+        "number":10,
+        "type":"checkbox",
+        "min":0,
+        "max":1,
+        "double":"r",
+        "moveOptions":[0,1,2,4],
+        "name":"Direct"
+      }
+    }
+  },
+  "matrix":{
+    "number":21,
+    "name":"Mixer",
+    "id":"matrix",
+    "online":0,
+    "param":{
+      "i1o1":{
+        "number":1,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 1 -> Out 1"
+      },
+      "i1o2":{
+        "number":2,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 1 -> Out 2"
+      },
+      "i1o3":{
+        "number":3,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 1 -> Out 3"
+      },
+      "i1o4":{
+        "number":4,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 1 -> Out 4"
+      },
+      "i2o1":{
+        "number":5,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 2 -> Out 1"
+      },
+      "i2o2":{
+        "number":6,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 2 -> Out 2"
+      },
+      "i2o3":{
+        "number":7,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 2 -> Out 3"
+      },
+      "i2o4":{
+        "number":8,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 2 -> Out 4"
+      },
+      "i3o1":{
+        "number":9,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 3 -> Out 1"
+      },
+      "i3o2":{
+        "number":10,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 3 -> Out 2"
+      },
+      "i3o3":{
+        "number":11,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 3 -> Out 3"
+      },
+      "i3o4":{
+        "number":12,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 3 -> Out 4"
+      },
+      "i4o1":{
+        "number":13,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 4 -> Out 1"
+      },
+      "i4o2":{
+        "number":14,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 4 -> Out 2"
+      },
+      "i4o3":{
+        "number":15,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 4 -> Out 3"
+      },
+      "i4o4":{
+        "number":16,
+        "type":"range",
+        "min":0,
+        "max":255,
+        "name":"In 4 -> Out 4"
+      }
+    }
+  }
+}
+
