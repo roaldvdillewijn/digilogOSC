@@ -340,7 +340,7 @@ html {
 
 body {
   color: #404040;
-  background: white;
+  background: #bbbbbb;
   font-size: 1rem; }
 
 p,
@@ -859,6 +859,18 @@ caption {
   top:0%;
   left:0%;
   border-bottom: 1px solid white
+ }
+ div.serial {
+  position: relative;
+  width: 70%;
+  height:10%;
+  left:15%;
+  background-color: #999999;
+  border:1px solid white;
+  text-align: center;
+ }
+ p.serial {
+
  }
 
  p.optionsTitle {

@@ -51,13 +51,13 @@ class Pedal {
     }) 
     callback(arr);
   }
-  getPedalData(pedal,param,value,callback) {
-    let returndata = {"pedal":0,"param":0,"value":value}
+  getPedalData(data,callback) {
+    let returndata = {"pedal":0,"param":0,"value":data.value}
     this.effects.forEach(pdl => { 
-      if (pdl.id == pedal) {
+      if (pdl.id == data.pedal) {
         returndata.pedal = pdl.number;
         for (let prm in pdl.param) {
-          if (prm == param) {
+          if (prm == data.param) {
             returndata.param = pdl.param[prm].number;
             callback(returndata);
           }

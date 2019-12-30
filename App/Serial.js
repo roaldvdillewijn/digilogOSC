@@ -23,13 +23,14 @@ class Serial {
       });
     });
   }
-  write(data) {
+  write(data,callback) {
     if (this.port) {
       let firstByte = parseInt(data.value / 256);
       let secondByte = parseInt(data.value % 256);
       let serialMessage = [211,data.pedal,data.param,firstByte,secondByte,247];
       this.port.write(serialMessage,error => {
         if (error)console.log(error);
+        callback(serialMessage);
       });
     }
   }

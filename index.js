@@ -23,6 +23,9 @@ Server.socket(() => {
           });
         });
       break;
+      case "askForOscInfo":
+        Server.send({address:"oscServer",value:"Osc server listening to port 9000"})
+      break;
     }
   })  
 });
@@ -34,9 +37,12 @@ Osc.createClient();
 
 Pedal.getPedals();
 
-Osc.handleData(msg => {
+Osc.handleData((msg,raw) => {
+  Server.send({address:'oscData',value:raw})
   Pedal.getPedalData(msg,data => {
-    Serial.write(data);
+    Serial.write(data,(serialData => {
+      Server.send({address:"serialData",value:serialData});
+    }));
   })
 });
 

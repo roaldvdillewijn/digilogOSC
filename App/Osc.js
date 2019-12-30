@@ -10,7 +10,7 @@ class Osc {
         let returndata = {"pedal":0,"param":0,"value":msg[1]};
         returndata.pedal = msg[0].split("/")[1];
         returndata.param = msg[0].split("/")[2];
-        callback(returndata);
+        callback(returndata,msg);
       });
     }
   }
