@@ -40,8 +40,8 @@ class App extends React.Component {
     readSocket('oscServer',data => {
       this.setState({
         oscInfo:data
-      })
-    })
+      });
+    });
   }
   showOptions = (index) => {
     socket.emit('message',{"address":"getPedalInfo","value":index[0]});

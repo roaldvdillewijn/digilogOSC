@@ -1,7 +1,7 @@
 class Options extends React.Component {
   state = {
     parameters:[],
-    headers:["Param","OSC","Min","Max"],
+    headers:["Param","OSC","Value","Min","Max"],
   }
   constructor(props) {
     super(props);

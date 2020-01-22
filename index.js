@@ -3,6 +3,8 @@ const Osc = require('./App/Osc').Osc;
 const Serial = require('./App/Serial').Serial;
 const Pedal = require('./App/Pedal').Pedal;
 const Server = require('./App/Server').Server;
+const Midi = require('./App/Midi').Midi;
+const midiList = {};
 
 
 Server.start();
@@ -32,17 +34,44 @@ Server.socket(() => {
 
 Serial.connect();
 
+// Midi.connect(() => {
+
+// });
+
 Osc.createServer();
 Osc.createClient();
 
-Pedal.getPedals();
+Pedal.getPedals(() => {
+  Pedal.getMidiPedals(res => {
+    res.map((result,index) => {
+      midiList[result.pedal] = new Midi(result);
+      midiList[result.pedal].connect(() => {
+        //something with receiving midi-data;
+      });  
+    })
+  });
+  console.log("midiList:",midiList);
+});
 
 Osc.handleData((msg,raw) => {
   Server.send({address:'oscData',value:raw})
   Pedal.getPedalData(msg,data => {
-    Serial.write(data,(serialData => {
-      Server.send({address:"serialData",value:serialData});
-    }));
+    Pedal.setValue(data);
+    if (data.midi == 1) {
+      midiList[data.pedal].write(data,(midiData => {
+        Server.send({address:"serialData",value:midiData});
+      }));
+    }
+    if (data.midi == 2) {
+      midiList[data.pedal].writeLSB(data,midiData => {
+        Server.send({address:"serialData",value:midiData});
+      })
+    }
+    else {
+      Serial.write(data,(serialData => {
+        Server.send({address:"serialData",value:serialData});
+      }));
+    }
   })
 });
 
