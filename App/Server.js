@@ -25,7 +25,9 @@ class Server{
     });
   }
   send(data) {
-    this.client.emit(data.address,data.value);
+    if (this.client) {
+      this.client.emit(data.address,data.value);  
+    }
   }
   receive(callback) {
     if (this.client) {

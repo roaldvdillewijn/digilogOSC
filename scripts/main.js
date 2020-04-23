@@ -72,7 +72,7 @@ class App extends React.Component {
         <div className="serial">
           {oscInfo}
           <br/><span><u>OSC message</u></span><br/>
-          {osc[0]} {osc[1]}
+          {osc}
           <br/><span><u>Serial data</u></span><br/>
           {serialData}
         </div>

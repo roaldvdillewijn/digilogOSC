@@ -25,10 +25,20 @@ class Pedal {
             max = pedal.param[i].max;
           }
           if (pedal.param[i].type != "hidden") {
+            let optionList = "";
+            if (pedal.param[i].type == "ramp") {
+              optionList += i+" ";
+              for (let j in pedal.param[i].setup) {
+                optionList += j + " ";
+              }
+            }
+            else {
+              optionList = i;
+            }
             arr.push({
               "id":{"text":i,"type":null},
               "param":{"text":pedal.param[i].name,"type":"text"},
-              "osc":{"text":"/"+pedal.id+"/"+i,"type":"text"},
+              "osc":{"text":"/"+pedal.id+"/"+optionList,"type":"text"},
               "value":{"text":pedal.param[i].value,"type":"text"},
               "min":{"text":min,"type":"text"},
               "max":{"text":max,"type":"text"},
@@ -68,9 +78,8 @@ class Pedal {
     callback(arr);
   }
   setValue(data) {
-    console.log(data);
     this.effects.map(pedal => {
-      if (data.pedal === pedal.id) {
+      if (data.id === pedal.id) {
         for (let i in pedal.param) {
           if (data.midi == 2) {
             if (pedal.msb == data.param[0] && pedal.lsb == data.param[1]) {
@@ -87,19 +96,34 @@ class Pedal {
     })
   }
   getPedalData(data,callback) {
-    let returndata = {"pedal":0,"param":0,"value":data.value,"midi":0}
+    const valueArray = (Array.isArray(data.value))?[...data.value]:data.value;
+    let returndata = {"pedal":0,"id":"null","param":0,"value":valueArray,"midi":0,"ramp":0}
     this.effects.forEach(pdl => { 
       if (pdl.id == data.pedal) {
         if (pdl.midi)returndata.midi = 1;
-        returndata.pedal = pdl.id;
+        returndata.pedal = pdl.number;
+        returndata.id = pdl.id;
         for (let prm in pdl.param) {
-          if (prm == data.param) {
+          if (prm == data.param && prm != "ramp") {
             if (pdl.param[prm].msblsb) {
               returndata.midi = 2;
               returndata.param = [pdl.param[prm].msb,pdl.param[prm].lsb];
             }
             else {
               returndata.param = pdl.param[prm].number;
+            }
+            callback(returndata);
+          }
+          else if (prm == data.param && prm == "ramp") {
+            if (data.value.length != 5) break;
+            returndata.ramp = 1;
+            returndata.param = [];
+            for (let i in pdl.param[prm].setup) {
+              let placeHolderValue = data.value[3]
+              returndata.param.push(pdl.param[prm].setup[i]);
+              if (i == 'time') returndata.value[4] = placeHolderValue%256;
+              if (i == 'timetwo') returndata.value[3] = parseInt(placeHolderValue/256);
+              if (i == 'exp') returndata.value[5] = data.value[4];
             }
             callback(returndata);
           }

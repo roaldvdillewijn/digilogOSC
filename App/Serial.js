@@ -26,14 +26,30 @@ class Serial {
   }
   write(data,callback) {
     if (this.port) {
-      let firstByte = Math.abs(parseInt(data.value / 256));
-      let secondByte = Math.abs(parseInt(data.value % 256));
-      let serialMessage = [211,data.pedal,data.param,firstByte,secondByte,247];
-      this.port.write(serialMessage,error => {
-        console.log(serialMessage);
-        if (error)console.log(error);
-        callback(serialMessage);
-      });
+      if (data.ramp == 1) {
+        let messageList = [];
+        data.value.map((val,index) => {
+          let firstByte = Math.abs(parseInt(val / 256));
+          let secondByte = Math.abs(parseInt(val % 256));
+          let serialMessage = [211,data.pedal,data.param[index],firstByte,secondByte,247];
+          this.port.write(serialMessage,error => {
+            console.log(serialMessage);
+            if (error)console.log(error);
+            messageList.push(serialMessage);
+          })
+        })
+        callback(messageList);
+      }
+      else {
+        let firstByte = Math.abs(parseInt(data.value / 256));
+        let secondByte = Math.abs(parseInt(data.value % 256));
+        let serialMessage = [211,data.pedal,data.param,firstByte,secondByte,247];
+        this.port.write(serialMessage,error => {
+          console.log(serialMessage);
+          if (error)console.log(error);
+          callback(serialMessage);
+        });
+      }
     }
   }
 }

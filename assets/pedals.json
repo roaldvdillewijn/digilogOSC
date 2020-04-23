@@ -46,7 +46,7 @@
         "max":255,
         "name":"Pre Delay"
       },
-      "mode": {
+      "_mode": {
         "number":11,
         "type":"select",
         "value":0,
@@ -178,7 +178,7 @@
         "max":255,
         "name":"Feedback"
       },
-      "mode": {
+      "_mode": {
         "number":3,
         "type":"select",
         "value":0,
@@ -233,6 +233,119 @@
       "internalPot": {
         "number":10,
         "type":"hidden"
+      },
+      "ramp":{
+        "number":16,
+        "type":"ramp",
+        "setup": {
+          "pot":14,
+          "min":12,
+          "max":13,
+          "timetwo":15,
+          "time":11,
+          "exp":16
+        },
+       "name":"Ramp",
+       "value":"~",
+       "min":"~",
+       "max":"~" 
+      }
+    }
+  },
+  "attackdecay": {
+    "number":23,
+    "name":"Attack Decay",
+    "id":"attackdecay",
+    "type":"other",
+    "online":1,
+    "param":{
+      "blend": {
+        "number":1,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":255,
+        "name":"Blend"
+      },
+      "attack": {
+        "number":2,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":255,
+        "name":"Attack"
+      },
+      "decay": {
+        "number":3,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":255,
+        "name":"Decay"
+      },
+      "bypass": {
+        "number":4,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Bypass"
+      },
+      "harmonix": {
+        "number":5,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Harmonix"
+      },
+      "poly": {
+        "number":6,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Poly"
+      },
+      "preset1": {
+        "number":7,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Preset 1"
+      },
+      "preset2": {
+        "number":8,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Preset 2"
+      },
+      "preset3": {
+        "number":9,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Preset 3"
+      },
+      "trigger": {
+        "number":10,
+        "type":"button",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Trigger"
+      },
+      "triggermode": {
+        "number":11,
+        "type":"button",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Trigger Mode"
       }
     }
   },
@@ -267,7 +380,7 @@
         "max":255,
         "name":"Tone"
       },
-      "mode": {
+      "_mode": {
         "number":3,
         "type":"select",
         "value":0,
@@ -340,7 +453,7 @@
         "max":255,
         "name":"Blend"
       },
-      "mode":{
+      "_mode":{
         "number":2,
         "type":"select",
         "value":0,
@@ -491,30 +604,32 @@
         "name":"Trigger",
         "label":"Trigger" 
       },
-      "mode":{
+      "_mode":{
         "number":6,
         "type":"select",
         "value":0,
         "menuItems":["Momentary","Auto","Latch"],
         "name":"Mode"
       },
-      "potstate": {
-        "number":7,
-        "type":"hidden",
-        "name":"Potstate"
-      },
-      "potSend": {
-        "number":8,
-        "type":"checkbox",
-        "value":0,
-        "min":0,
-        "max":1,
-        "moveOptions":[0],
-        "name":"PotSend"
-      },
       "internalPot": {
         "number":9,
         "type":"hidden"
+      },
+      "ramp":{
+        "number":14,
+        "type":"ramp",
+        "setup": {
+          "pot":7,
+          "min":8,
+          "max":11,
+          "timetwo":12,
+          "time":13,
+          "exp":14
+        },
+        "name":"Ramp",
+        "value":"~",
+        "min":"~",
+        "max":"~" 
       }
     }
   },
@@ -700,7 +815,7 @@
         "max":1,
         "name":"Expression"
       },
-      "mode":{
+      "_mode":{
         "number":4,
         "type":"select",
         "value":0,
@@ -715,26 +830,29 @@
         "max":255,
         "name":"Expression"
       },
-      "potState":{
-        "number":7,
-        "type":"hidden"
-      },
       "abspitch":{
         "number":8,
         "type":"hidden"
       },
-      "potSend": {
-        "number":9,
-        "type":"checkbox",
-        "moveOptions":[0],
-        "value":0,
-        "min":0,
-        "max":1,
-        "name":"PotSend"
-      },
       "internalPot": {
         "number":10,
         "type":"hidden"
+      },
+      "ramp":{
+        "number":14,
+        "type":"ramp",
+        "setup": {
+          "pot":7,
+          "min":9,
+          "max":11,
+          "timetwo":12,
+          "time":13,
+          "exp":14
+        },
+       "name":"Ramp",
+       "value":"~",
+       "min":"~",
+       "max":"~" 
       }
     }
   },
@@ -1178,7 +1296,7 @@
         "value":1,
         "name":"Select Preset"
       },
-      "mode":{
+      "_mode":{
         "number":6,
         "type":"select",
         "value":0,
@@ -1209,16 +1327,6 @@
         "moveOptions":[0,1,2,4],
         "name":"Bypass"
       },
-      "potSend": {
-        "number":13,
-        "type":"checkbox",
-        "value":0,
-        "min":0,
-        "max":1,
-        "double":"l",
-        "moveOptions":[0],
-        "name":"PotSend"
-      },
       "momlatch": {
         "number":15,
         "type":"checkbox",
@@ -1229,13 +1337,25 @@
         "max":1,
         "name":"MomLatch"
       },
-      "potState":{
-        "number":11,
-        "type":"hidden"
-      },
       "internalPot": {
         "number":14,
         "type":"hidden"
+      },
+      "ramp":{
+        "number":19,
+        "type":"ramp",
+        "setup": {
+          "pot":11,
+          "min":13,
+          "max":16,
+          "timetwo":17,
+          "time":18,
+          "exp":19
+        },
+       "name":"Ramp",
+       "value":"~",
+       "min":"~",
+       "max":"~" 
       }
     }
   },
@@ -1270,7 +1390,7 @@
         "max":255,
         "name":"Tone"
       },
-      "mode":{
+      "_mode":{
         "number":4,
         "type":"select",
         "value":0,
@@ -2092,7 +2212,7 @@
         "max":88,
         "name":"Pitch Semitones"
       },
-      "holdfsw":{
+      "loop":{
         "number":80,
         "type":"checkbox",
         "value":0,
@@ -2100,7 +2220,7 @@
         "max":127,
         "name":"Hold footswitch"
       },
-      "effectfsw":{
+      "bypass":{
         "number":81,
         "type":"checkbox",
         "value":0,
@@ -2119,6 +2239,14 @@
     "type":"delay",
     "midi":1,
     "param": {
+      "bypass":{
+        "number":102,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":0,
+        "name":"Bypass"
+      },
       "level":{
         "number":12,
         "type":"range",
@@ -2410,7 +2538,7 @@
         "max":127,
         "name":"+1 Oct"
       },
-      "oneoctyfifth":{
+      "oneoctufifth":{
         "number":108,
         "type":"range",
         "value":0,
@@ -2572,7 +2700,7 @@
         "max":127,
         "name":"Expression"
       },
-      "mode": {
+      "_mode": {
         "number":1,
         "type":"select",
         "value":0,
@@ -2822,7 +2950,7 @@
         "max":255,
         "name":"Delay"
       },
-      "mode":{
+      "_mode":{
         "number":4,
         "type":"select",
         "value":0,
