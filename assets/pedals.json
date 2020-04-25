@@ -2230,6 +2230,146 @@
       }
     }
   },
+  "ottobit": {
+    "number":4,
+    "name":"Ottobit Jr",
+    "id":"ottobit",
+    "midiName":"Volante",
+    "online":1,
+    "type":"filter",
+    "midi":1,
+    "param":{
+      "bypass": {
+        "number":14,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Bypass"
+      },
+      "tempo": {
+        "number":15,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Tempo"
+      },
+      "samplerate": {
+        "number":16,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Samplerate"
+      },
+      "filter": {
+        "number":17,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Filter"
+      },
+      "bits": {
+        "number":18,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Bits"
+      },
+      "stutter": {
+        "number":19,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Stutter"
+      },
+      "seq": {
+        "number":20,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Sequencer"
+      },
+      "seqmult": {
+        "number":21,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Sequencer Mult"
+      },
+      "stepone": {
+        "number":22,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Step 1"
+      },
+      "steptwo": {
+        "number":23,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Step 2"
+      },
+      "stepthree": {
+        "number":24,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Step 3"
+      },
+      "stepfour": {
+        "number":25,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Step 4"
+      },
+      "stepfive": {
+        "number":26,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Step 5"
+      },
+      "stepsix": {
+        "number":27,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Step 6"
+      },
+      "stutterhold": {
+        "number":31,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Stutter Hold"
+      },
+      "seqtype": {
+        "number":29,
+        "type":"select",
+        "menuItems":["pitch","sample rate","filter"],
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Sequencer Type"
+      }
+    }
+  },
   "volante": {
     "number":1,
     "name":"Volante",
