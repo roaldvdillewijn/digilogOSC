@@ -9,7 +9,7 @@ class Osc {
       this.server.on("message",(msg,rinfo) => {
         let val = [...msg];
         val.shift();
-        (val.length == 4)?val.push(50):null;
+        (val.length == 4 && msg[0].split("/")[2] == "ramp")?val.push(50):null;
         let returndata = {"pedal":0,"param":0,"value":(val.length==1)?val[0]:val};
         returndata.pedal = msg[0].split("/")[1];
         returndata.param = msg[0].split("/")[2];

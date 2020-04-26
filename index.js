@@ -51,6 +51,20 @@ Pedal.getPedals(() => {
 
 Osc.handleData((msg,raw) => {
   Server.send({address:'oscData',value:raw})
+  Pedal.catchExtras(msg,data => {
+    if (data) {
+      if (data.midi == 1) {
+        midiList[data.id].write(data,(midiData => {
+          Server.send({address:"serialData",value:midiData});
+        }));
+      }
+      else {
+        Serial.write(data,(serialData => {
+          Server.send({address:"serialData",value:serialData});
+        }))
+      }
+    }
+  });
   Pedal.getPedalData(msg,data => {
     if (data) {
       Pedal.setValue(data);
