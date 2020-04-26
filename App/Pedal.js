@@ -9,7 +9,7 @@ function rand(number) {
 class Pedal {
   constructor() {
     this.effects = [];
-    this.extras = {"createSeq":this.createSeq,"fadeIn":this.fadeIn};
+    this.extras = {"createSeq":this.createSeq,"fade":this.fade};
   }
   getPedals(callback) {
     for (let i in pedals) {
@@ -107,15 +107,16 @@ class Pedal {
       callback(data);
     });
   }
-  fadeIn(pedal,value,that,callback) {
-    let param,start,stop,time,steps,timePerStep,stepCounter = 0;
-    if (Array.isArray(value) && value.length == 4) {
+  fade(pedal,value,that,callback) {
+    let param,start,stop,time,steps,timePerStep,stepSize,stepCounter = 0;
+    if (Array.isArray(value) && value.length >= 4) {
       param = value[0];
       start = value[1];
       stop = value[2];
       time = value[3];
-      steps = (stop-start)+1;
+      steps = Math.abs((stop-start))+1;
       timePerStep = time/steps;
+      stepSize = (stop-start<0)?-1:1;
     }
     else {
       callback(null);
@@ -129,7 +130,7 @@ class Pedal {
         that.getPedalData({"pedal":pedal,"param":param,"value":start},data => {
           callback(data);
         });
-        start++;
+        start+=stepSize;
       }
     },timePerStep);
   }
