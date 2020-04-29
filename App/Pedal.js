@@ -9,7 +9,12 @@ function rand(number) {
 class Pedal {
   constructor() {
     this.effects = [];
-    this.extras = {"createSeq":this.createSeq,"fade":this.fade};
+    this.oscilInfo = {};
+    this.extras = {
+      "createSeq":this.createSeq,
+      "fade":this.fade,
+      "oscillate":this.oscillate,
+      "stop":this.stop};
   }
   getPedals(callback) {
     for (let i in pedals) {
@@ -103,17 +108,88 @@ class Pedal {
     })
   }
   catchExtras(data,callback) {
-    if (this.extras[data.param])this.extras[data.param](data.pedal,data.value,this,data => {
-      callback(data);
-    });
+    if (this.extras[data.param]) {
+      this.extras[data.param](data.pedal,data.value,this,returndata => {
+        if (returndata == "done" && (data.param == "fade" || data.param == "stop")) {
+          callback({"done":1,"pedal":data.pedal,"param":Array.isArray(data.value)?data.value[0]:data.value});
+        }
+        else {
+          callback(returndata);  
+        }
+      })
+    }
+  }
+  stop(pedal,value,that,callback) {
+    let param = Array.isArray(value)?value[0]:value
+    if (Array.isArray(value)) {
+      if (value[1] == 'up') {
+        that.oscilInfo[pedal+"_"+param]['stop'] = 1;
+      }
+      if (value[1] == 'down') {
+        that.oscilInfo[pedal+"_"+param]['stop'] = -1;
+      }
+    }
+    else {
+      that.oscilInfo[pedal+"_"+param]['stop'] = 2;
+    }
+  }
+  oscillate(pedal,value,that,callback) {
+    let param,low,high,time,steps,timePerStep,stepSize,objaddr,stepCounter = 0;
+    if (Array.isArray(value) && value.length >= 4) {
+      [param,low,high,time] = value;
+      steps = Math.abs((high-low));
+      timePerStep = (time/2)/steps;
+      stepSize = 1;
+      objaddr = pedal+"_"+param;
+    }
+    else {
+      callback(null);
+    }
+    
+    if (!that.oscilInfo[objaddr])that.oscilInfo[objaddr] = {};
+
+    if (that.oscilInfo[objaddr].lastValue) {
+      low = that.oscilInfo[objaddr].lastValue;
+      if (that.oscilInfo[objaddr].lastValue == high) {
+        stepSize -1;
+      }
+      else {
+        stepCounter = low;
+      }
+    }
+    
+    that.oscilInfo[objaddr]['runner'] = setInterval(() => {
+      if (steps === stepCounter) {
+        if(that.oscilInfo[objaddr]['stop'] == stepSize) {
+          clearInterval(that.oscilInfo[objaddr]['runner']);
+          that.oscilInfo[objaddr]['lastValue'] = low;
+          that.oscilInfo[objaddr]['stop'] = 0;
+          callback("done");
+        }
+        else {
+          stepSize *= -1;
+          stepCounter = 0;  
+        }
+      }
+      else {
+        if (that.oscilInfo[objaddr]['stop'] == 2) {
+          clearInterval(that.oscilInfo[objaddr]['runner']);
+          that.oscilInfo[objaddr]['lastValue'] = low;
+          that.oscilInfo[objaddr]['stop'] = 0;
+          callback("done");
+        }
+        stepCounter++;
+        that.getPedalData({"pedal":pedal,"param":param,"value":low},data => {
+          callback(data);
+        });
+        low += stepSize;
+      }
+    },timePerStep);
   }
   fade(pedal,value,that,callback) {
     let param,start,stop,time,steps,timePerStep,stepSize,stepCounter = 0;
     if (Array.isArray(value) && value.length >= 4) {
-      param = value[0];
-      start = value[1];
-      stop = value[2];
-      time = value[3];
+      [param,start,stop,time] = value;
       steps = Math.abs((stop-start))+1;
       timePerStep = time/steps;
       stepSize = (stop-start<0)?-1:1;
@@ -124,6 +200,7 @@ class Pedal {
     let runner = setInterval(() => {
       if (steps === stepCounter) {
         clearInterval(runner);
+        callback("done");
       }
       else {
         stepCounter++;
@@ -139,8 +216,7 @@ class Pedal {
     const paramList = ["stepone","steptwo","stepthree","stepfour","stepfive","stepsix"]
     const pitchList = {"-12":12,"-11":16,"-10":20,"-9":24,"-8":28,"-7":32,"-6":36,"-5":40,"-4":45,"-3":49,"-2":53,"-1":57,"0":67,"1":77,"2":81,"3":86,"4":90,"5":94,"6":98,"7":102,"8":106,"9":110,"10":114,"11":118,"12":126} 
     if (Array.isArray(value)) {
-      key = value[0];
-      chance = value[1];
+      [key, chance] = value;
     }
     else {
       key = value;

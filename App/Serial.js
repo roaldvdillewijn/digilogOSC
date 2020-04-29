@@ -15,14 +15,27 @@ class Serial {
           }, () => {
             console.log("connected to serial");
             if (this.port) {
+              console.log("listening...");
               this.port.on('data',data => {
-                console.log(data);
+                if (data[0] == 129 && data[2] == 250) {
+                  for (let j=0;j<(data.length/3);j++) {
+                    if (data[(j*3)] == 129 && data[(j*3)+2] == 250) {
+                      console.log(data[(j*3)+1]);
+                    }
+                  }
+                }
               })
             }
           })
         }
       });
     });
+  }
+  checkPedals() {
+    if (this.port) {
+      let serialMessage = [255, 0, 254, 1, 253, 2];
+      this.port.write(serialMessage)
+    }
   }
   write(data,callback) {
     if (this.port) {
@@ -41,8 +54,9 @@ class Serial {
         callback(messageList);
       }
       else {
-        let firstByte = Math.abs(parseInt(data.value / 256));
-        let secondByte = Math.abs(parseInt(data.value % 256));
+        let value = Array.isArray(data.value)?data.value[0]:data.value;
+        let firstByte = Math.abs(parseInt(value / 256));
+        let secondByte = Math.abs(parseInt(value % 256));
         let serialMessage = [211,data.pedal,data.param,firstByte,secondByte,247];
         this.port.write(serialMessage,error => {
           console.log(serialMessage);

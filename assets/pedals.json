@@ -53,7 +53,7 @@
         "menuItems": ["Grail Spring","Accu Spring","Hall","Room","Plate","Reverse","Grail Flerb","Echo"],
         "name":"Mode"
       },
-      "bypass": {
+      "_bypass": {
         "number":10,
         "type":"checkbox",
         "value":0,
@@ -197,7 +197,7 @@
         "label":"Tap Divide",
         "name":"Tap Divide"
       },
-      "bypass": {
+      "_bypass": {
         "number":6,
         "type":"checkbox",
         "moveOptions":[0,1,2,4],
@@ -283,7 +283,7 @@
         "max":255,
         "name":"Decay"
       },
-      "bypass": {
+      "_bypass": {
         "number":4,
         "type":"checkbox",
         "value":0,
@@ -399,7 +399,7 @@
         "label":"Mode",
         "name":"Mode"
       },
-      "bypass": {
+      "_bypass": {
         "number":6,
         "type":"checkbox",
         "moveOptions":[0,1,2,4],
@@ -517,7 +517,7 @@
         "min":0,
         "max":1
       },
-      "bypass": { 
+      "_bypass": { 
         "number":10,
         "type":"checkbox",
         "moveOptions":[0,1,2,4],
@@ -584,7 +584,7 @@
         "max":255,
         "name":"Effect"  
       },
-      "bypass":{
+      "_bypass":{
         "number":5,
         "type":"checkbox",
         "moveOptions":[0,1,2,3,4],
@@ -688,7 +688,7 @@
         "max":255,
         "name":"Delay"
       },
-      "bypass": { 
+      "_bypass": { 
         "number":8,
         "type":"checkbox",
         "moveOptions":[0,1,2,4],
@@ -795,7 +795,7 @@
         "menuItems":["D","m2","M2","M3","P4","P5","M6","m7","1","2","3"],
         "name":"Pitch"
       },
-      "bypass":{
+      "_bypass":{
         "number":3,
         "type":"checkbox",
         "moveOptions":[0,1,2,4],
@@ -911,7 +911,7 @@
         "max":255,
         "name":"Rate"
       },
-      "bypass": {
+      "_bypass": {
         "number":7,
         "type":"checkbox",
         "moveOptions":[0,1,2,4],
@@ -1317,7 +1317,7 @@
         "moveOptions":[0,1,2,4],
         "name":"AutoTune"
       },
-      "bypass": {
+      "_bypass": {
         "number":10,
         "type":"checkbox",
         "value":0,
@@ -1412,7 +1412,7 @@
         "menuItems":["1","2.","2","4.","2^3","4","8.","8^3","8","8^3"],
         "name":"Tempo"
       },
-      "bypass":{
+      "_bypass":{
         "number":7,
         "type":"hidden"
       },
@@ -1623,7 +1623,7 @@
     "type":"Distortion",
     "online":0,
     "param":{
-      "bypass": {
+      "_bypass": {
         "number":"9",
         "type":"checkbox",
         "value":0,
@@ -1640,7 +1640,7 @@
     "id":"chillswitch",
     "online":0,
     "param":{
-      "bypass": {
+      "_bypass": {
         "number":9,
         "type":"checkbox",
         "value":0,
@@ -2145,7 +2145,7 @@
         "max":127,
         "name":"Circuit (16/step)"
       },
-      "bypass":{
+      "_bypass":{
         "number":80,
         "type":"checkbox",
         "value":0,
@@ -2220,7 +2220,7 @@
         "max":127,
         "name":"Hold footswitch"
       },
-      "bypass":{
+      "_bypass":{
         "number":81,
         "type":"checkbox",
         "value":0,
@@ -2239,7 +2239,7 @@
     "type":"filter",
     "midi":1,
     "param":{
-      "bypass": {
+      "_bypass": {
         "number":14,
         "type":"checkbox",
         "value":0,
@@ -2379,7 +2379,7 @@
     "type":"delay",
     "midi":1,
     "param": {
-      "bypass":{
+      "_bypass":{
         "number":102,
         "type":"checkbox",
         "value":0,
@@ -2774,7 +2774,7 @@
         "max":127,
         "name":"Freeze+Gliss"
       },
-      "bypass":{
+      "_bypass":{
         "number":85,
         "type":"checkbox",
         "value":0,
@@ -2854,7 +2854,7 @@
         "menuItems":["2-up","1-up","5th-up","4th-up","2nd-up","2nd-dn","4th-dn","5th-dn","1dn","dive-bomb","deep","shlw","4th-dn/3rd-up","4th-dn/5th-up","5th-dn/5th-up","5th-up/6th-up","5th-up/1-up","1-dn/4thdn","1-dn/1up","1-up/10th-up","1-up/2-up"],
         "name":"Program"
       },
-      "bypass" : {
+      "_bypass" : {
         "number":4,
         "type":"checkbox",
         "value":0,
@@ -3097,7 +3097,7 @@
         "menuItems":["Short","Middle","Long","Hold"],
         "name":"Mode"
       },
-      "bypass":{
+      "_bypass":{
         "number":5,
         "type":"checkbox",
         "value":0,
