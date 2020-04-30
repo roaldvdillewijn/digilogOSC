@@ -4,6 +4,7 @@ const Serial = require('./App/Serial').Serial;
 const Pedal = require('./App/Pedal').Pedal;
 const Server = require('./App/Server').Server;
 const Midi = require('./App/Midi').Midi;
+const ExtraPedalFunctions = require('./App/ExtraPedalFunctions').ExtraPedalFunctions;
 const midiList = {};
 
 
@@ -46,7 +47,6 @@ Pedal.getPedals(() => {
       });  
     })
   });
-  console.log("midiList:",midiList);
 });
 
 Osc.handleData((msg,raw) => {
@@ -55,20 +55,32 @@ Osc.handleData((msg,raw) => {
   }
   else {
     Server.send({address:'oscData',value:raw})
-    Pedal.catchExtras(msg,data => {
-      if (data) {
-        if (data.done == 1) {
-          Osc.setState("/"+data.pedal+"/"+data.param);
+    ExtraPedalFunctions.catchExtras(msg,returndata => {
+      if (returndata) {
+        if (returndata.type === "done") {
+          Osc.setState("/"+returndata.pedal+"/"+returndata.param);
         }
-        else if (data.midi == 1) {
-          midiList[data.id].write(data,(midiData => {
-            Server.send({address:"serialData",value:midiData});
-          }));
-        }
-        else {
-          Serial.write(data,(serialData => {
-            Server.send({address:"serialData",value:serialData});
-          }))
+        else{
+          Pedal.getPedalData(returndata,data => {
+            if (data) {
+              Pedal.setValue(data);
+              if (data.midi == 1) {
+                midiList[data.id].write(data,(midiData => {
+                  Server.send({address:"serialData",value:midiData});
+                }));
+              }
+              else if (data.midi == 2) {
+                midiList[data.id].writeLSB(data,midiData => {
+                  Server.send({address:"serialData",value:midiData});
+                })
+              }
+              else {
+                Serial.write(data,(serialData => {
+                  Server.send({address:"serialData",value:serialData});
+                }));
+              }
+            }
+          })
         }
       }
     });
