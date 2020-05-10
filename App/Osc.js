@@ -30,7 +30,7 @@ class Osc {
         }
 
         //check if any hold-function (once || change) should be switched off
-        if (val[val.length - 1] != "once" && val[val.length - 1] != "change") {
+        if (val[val.length - 1] != "once" && val[val.length - 1] != "change" && val[val.length - 1] != "loop" && val[val.length - 1] != "cont") {
           this.state[addr] = 0;
         }
         if (val[val.length - 1] == "change" && this.value[addr] != value[0]) {

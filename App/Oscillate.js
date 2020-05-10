@@ -59,16 +59,18 @@ class Oscillate {
   }
   stop(pedal,value,callback) {
     let param = Array.isArray(value)?value[0]:value
-    if (Array.isArray(value)) {
-      if (value[1] == 'up') {
-        this.oscilInfo[pedal+"_"+param]['stop'] = 1;
+    if (this.oscilInfo[pedal+"_"+param]) {
+      if (Array.isArray(value)) {
+        if (value[1] == 'up') {
+          this.oscilInfo[pedal+"_"+param]['stop'] = 1;
+        }
+        if (value[1] == 'down') {
+          this.oscilInfo[pedal+"_"+param]['stop'] = -1;
+        }
       }
-      if (value[1] == 'down') {
-        this.oscilInfo[pedal+"_"+param]['stop'] = -1;
+      else {
+        this.oscilInfo[pedal+"_"+param]['stop'] = 2;
       }
-    }
-    else {
-      this.oscilInfo[pedal+"_"+param]['stop'] = 2;
     }
   }
 }

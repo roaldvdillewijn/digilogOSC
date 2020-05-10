@@ -111,6 +111,7 @@ class Pedal {
         returndata.id = pdl.id;
         for (let prm in pdl.param) {
           if (prm == data.param && prm != "ramp") {
+            returndata.value = (Array.isArray(returndata.value))?returndata.value[0]:returndata.value;
             if (pdl.param[prm].msblsb) {
               returndata.midi = 2;
               returndata.param = [pdl.param[prm].msb,pdl.param[prm].lsb];

@@ -24,7 +24,7 @@ class ExtraPedalFunctions {
         }
       });
     }
-    else if (data.param = "createSeq") {
+    else if (data.param == "createSeq") {
       CreateSeq.do(data.pedal,data.value,returndata => {
         callback(returndata);
       })

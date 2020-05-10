@@ -2384,8 +2384,17 @@
         "type":"checkbox",
         "value":0,
         "min":0,
-        "max":0,
+        "max":127,
         "name":"Bypass"
+      },
+      "type": {
+        "number":11,
+        "type":"select",
+        "menuItems":["studio","drum","tape"],
+        "value":1,
+        "min":1,
+        "max":3,
+        "name":"Type"
       },
       "level":{
         "number":12,
@@ -2403,6 +2412,22 @@
         "max":127,
         "name":"Rec Level"
       },
+      "mechanics": {
+        "number":14,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"mechanics"
+      },
+      "wear": {
+        "number":15,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"wear"
+      },
       "lowcut":{
         "number":16,
         "type":"range",
@@ -2411,6 +2436,14 @@
         "max":127,
         "name":"Low Cut"
       },
+      "delay":{
+        "number":17,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Delay"
+      },
       "spacing":{
         "number":18,
         "type":"range",
@@ -2418,6 +2451,23 @@
         "min":0,
         "max":127,
         "name":"Spacing"
+      },
+      "speed":{
+        "number":19,
+        "type":"select",
+        "menuItems":["double","half","normal"],
+        "value":1,
+        "min":1,
+        "max":3,
+        "name":"Speed"
+      },
+      "repeats": {
+        "number":20,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"repeats"
       },
       "head1lvl":{
         "number":25,
@@ -2488,7 +2538,7 @@
         "type":"checkbox",
         "value":0,
         "min":0,
-        "max":1,
+        "max":127,
         "name":"Head1 Feedback"
       },
       "head2fb":{
@@ -2496,7 +2546,7 @@
         "type":"checkbox",
         "value":0,
         "min":0,
-        "max":1,
+        "max":127,
         "name":"Head2 Feedback"
       },
       "head3fb":{
@@ -2504,7 +2554,7 @@
         "type":"checkbox",
         "value":0,
         "min":0,
-        "max":1,
+        "max":127,
         "name":"Head3 Feedback"
       },
       "head4fb":{
@@ -2512,7 +2562,7 @@
         "type":"checkbox",
         "value":0,
         "min":0,
-        "max":1,
+        "max":127,
         "name":"Head4 Feedback"
       },
       "pausespeed":{
@@ -2563,46 +2613,6 @@
         "max":1,
         "name":"Reverse"
       },
-      "soslevel":{
-        "number":48,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"SOS-level"
-      },
-      "delay":{
-        "number":17,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Delay"
-      },
-      "wear": {
-        "number":15,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"wear"
-      },
-      "mechanics": {
-        "number":14,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"mechanics"
-      },
-      "repeats": {
-        "number":20,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"repeats"
-      },
       "hold": {
         "number":46,
         "type":"checkbox",
@@ -2610,6 +2620,14 @@
         "min":0,
         "max":1,
         "name":"hold"
+      },
+      "soslevel":{
+        "number":48,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"SOS-level"
       }
     }
   },
@@ -2702,7 +2720,7 @@
         "max":127,
         "name":"+2 Oct + 3rd"
       },
-      "threeoct":{
+      "threeoctu":{
         "number":111,
         "type":"range",
         "value":0,
