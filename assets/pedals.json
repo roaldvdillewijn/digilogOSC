@@ -59,8 +59,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"Bypass"
       },
       "infinite": {
@@ -69,8 +67,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Infinite"
       },
       "tap": {
@@ -79,7 +75,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3],
         "value":1,
         "name":"Tap",
         "label":"Tap",
@@ -91,7 +86,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "value":1,
         "name":"Save",
         "dual":1,
@@ -103,7 +97,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "value":1,
         "dual":0,
         "name":"Load"
@@ -124,18 +117,14 @@
       "potSend": {
         "number":16,
         "type":"checkbox",
-        "double":"l",
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "name":"PotSend"
       },
       "momlatch": {
         "number":18,
         "type":"checkbox",
-        "double":"r",
-        "moveOptions":[0],
         "value":0,
         "min":0,
         "max":1,
@@ -188,7 +177,6 @@
       "tapdivide":{
         "number":5,
         "type":"button",
-        "moveOptions":[0],
         "value":0,
         "min":0,
         "max":1,
@@ -200,10 +188,8 @@
       "_bypass": {
         "number":6,
         "type":"checkbox",
-        "moveOptions":[0,1,2,4],
         "value":0,
         "min":0,
-        "double":"l",
         "max":1,
         "name":"Bypass"
       },
@@ -213,8 +199,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Secondary"
       },
       "potState": {
@@ -227,7 +211,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "name":"PotSend"
       },
       "internalPot": {
@@ -249,6 +232,89 @@
        "value":"~",
        "min":"~",
        "max":"~" 
+      }
+    }
+  },
+  "mixer": {
+    "number":24,
+    "name":"Tri-Parallel Mixer",
+    "id":"mixer",
+    "type":"other",
+    "online":1,
+    "param": {
+      "channel1": {
+        "number":1,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Channel 1"
+      },
+      "channel2": {
+        "number":2,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Channel 2"
+      },
+      "channel3": {
+        "number":3,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Channel 3"
+      },
+      "bypass": {
+        "number":4,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Bypass"
+      }
+    }
+  },
+  "overlord" :{
+    "number":25,
+    "name":"Operation Overlord",
+    "id":"overlord",
+    "type":"overdrive",
+    "online":1,
+    "param": {
+      "bypass": {
+        "number":1,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Bypass"
+      },
+      "boost": {
+        "number":2,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Boost"
+      }
+    }
+  },
+  "bassoverdrive": {
+    "number":26,
+    "name":"ODB-3",
+    "id":"bassoverdrive",
+    "type":"overdrive",
+    "online":1,
+    "param": {
+      "bypass": {
+        "number":1,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Bypass"
       }
     }
   },
@@ -390,7 +456,6 @@
       "tapdivide":{
         "number":5,
         "type":"button",
-        "moveOptions":[0],
         "value":0,
         "min":0,
         "max":1,
@@ -402,10 +467,8 @@
       "_bypass": {
         "number":6,
         "type":"checkbox",
-        "moveOptions":[0,1,2,4],
         "value":0,
         "min":0,
-        "double":"l",
         "max":1,
         "name":"Bypass"
       },
@@ -415,8 +478,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Secondary"
       },
       "potState": {
@@ -429,118 +490,10 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "name":"PotSend"
       },
       "internalPot": {
         "number":10,
-        "type":"hidden"
-      }
-    }
-  },
-  "riddle": {
-    "number":18,
-    "name":"Riddle",
-    "id":"riddle",
-    "type":"Filter",
-    "online":0,
-    "param":{
-      "blend":{
-        "number":1,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"Blend"
-      },
-      "_mode":{
-        "number":2,
-        "type":"select",
-        "value":0,
-        "menuItems":["LP","BP","HP"],
-        "name":"Mode"
-      },
-      "attack":{
-        "number":3,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"Attack"
-      },
-      "decay":{
-        "number":4,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"Decay"
-      },
-      "start":{
-        "number":5,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"Start"
-      },
-      "stop":{
-        "number":6,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"Stop"
-      },
-      "q":{
-        "number":7,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"Q"
-      },
-      "sensitivity":{
-        "number":8,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"Sensitivity"
-      },
-      "distortion": { 
-        "number":9,
-        "type":"checkbox",
-        "moveOptions":[0,1,2,4],
-        "name":"Distortion",
-        "value":0,
-        "min":0,
-        "max":1
-      },
-      "_bypass": { 
-        "number":10,
-        "type":"checkbox",
-        "moveOptions":[0,1,2,4],
-        "name":"Bypass",
-        "value":0,
-        "min":0,
-        "max":1
-      },
-      "potState": {
-        "number":11,
-        "type":"hidden"
-      },
-      "potSend": {
-        "number":12,
-        "type":"checkbox",
-        "value":0,
-        "min":0,
-        "max":1,
-        "moveOptions":[0],
-        "name":"PotSend"
-      },
-      "internalPot": {
-        "number":13,
         "type":"hidden"
       }
     }
@@ -568,13 +521,13 @@
         "max":255,
         "name":"Gliss"  
       },
-      "direct":{
+      "dry":{
         "number":3,
         "type":"range",
         "value":0,
         "min":0,
         "max":255,
-        "name":"Direct"  
+        "name":"Dry"  
       },
       "effect":{
         "number":4,
@@ -587,7 +540,6 @@
       "_bypass":{
         "number":5,
         "type":"checkbox",
-        "moveOptions":[0,1,2,3,4],
         "value":0,
         "min":0,
         "max":1,
@@ -691,7 +643,6 @@
       "_bypass": { 
         "number":8,
         "type":"checkbox",
-        "moveOptions":[0,1,2,4],
         "name":"Bypass",
         "value":0,
         "min":0,
@@ -717,7 +668,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "name":"Tap",
         "label":"Tap",
@@ -729,7 +679,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "value":1,
         "name":"Div. Sequence",
         "label":"Div. Sequence",
@@ -750,8 +699,6 @@
       "potSend": {
         "number":14,
         "type":"checkbox",
-        "moveOptions":[0],
-        "double":"l",
         "value":0,
         "min":0,
         "max":1,
@@ -760,8 +707,6 @@
       "momlatch": {
         "number":16,
         "type":"checkbox",
-        "moveOptions":[0],
-        "double":"r",
         "value":0,
         "min":0,
         "max":1,
@@ -778,7 +723,7 @@
     "name":"Pitch Fork",
     "id":"pitchfork",
     "type":"Pitch Shift",
-    "online":1,
+    "online":0,
     "param":{
       "blend":{
         "number":1,
@@ -798,9 +743,7 @@
       "_bypass":{
         "number":3,
         "type":"checkbox",
-        "moveOptions":[0,1,2,4],
         "name":"Bypass",
-        "double":"l",
         "value":0,
         "min":0,
         "max":1
@@ -808,8 +751,6 @@
       "expression":{
         "number":5,
         "type":"checkbox",
-        "moveOptions":[0,1,2,4],
-        "double":"r",
         "value":0,
         "min":0,
         "max":1,
@@ -914,20 +855,16 @@
       "_bypass": {
         "number":7,
         "type":"checkbox",
-        "moveOptions":[0,1,2,4],
         "value":0,
         "min":0,
-        "double":"l",
         "max":1,
         "name":"Bypass"
       },
       "waveinvert": {
         "number":8,
         "type":"checkbox",
-        "moveOptions":[0,1,2,4],
         "value":0,
         "min":0,
-        "double":"r",
         "max":1,
         "name":"Wave Invert"
       },
@@ -955,7 +892,6 @@
       "pulse": {
         "number":12,
         "type":"button",
-        "moveOptions":[0,3,4],
         "value":1,
         "value":0,
         "min":0,
@@ -971,7 +907,6 @@
       "potSend": {
         "number":14,
         "type":"checkbox",
-        "moveOptions":[0],
         "value":1,
         "name":"PotSend",
         "value":0,
@@ -988,7 +923,7 @@
     "number":16,
     "name":"22500",
     "id":"looper",
-    "online":0,
+    "online":1,
     "type":"Looper",
     "param":{
       "lpavol": { 
@@ -1013,7 +948,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "dual":1,
         "label":"Footswitches",
@@ -1025,7 +959,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "dual":0,
         "name":"Loop B"
@@ -1036,7 +969,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "value":1,
         "dual":0,
         "name":"Stop",
@@ -1048,7 +980,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "label":"Undo",
         "value":1,
         "dual":1,
@@ -1060,7 +991,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "value":1,
         "dual":0,
         "name":"Undo B"
@@ -1071,7 +1001,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "label":"Tempo",
         "value":1,
         "dual":0,
@@ -1083,7 +1012,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "dual":2,
         "label":"Rotary",
@@ -1095,7 +1023,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "dual":1,
         "name":"Rot. Dec."
@@ -1106,7 +1033,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "dual":0,
         "name":"Rot. Click"
@@ -1117,8 +1043,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,1,2,4],
-        "double":"l",
         "name":"Reverse A"
       },
       "revb": {
@@ -1127,8 +1051,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Reverse B"
       },
       "octa": { 
@@ -1189,7 +1111,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "name":"PotSend"
       },
       "internalPot": {
@@ -1217,7 +1138,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[1],
         "name":"Switch"
       }
     }
@@ -1291,7 +1211,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "dual":0,
         "value":1,
         "name":"Select Preset"
@@ -1313,8 +1232,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"AutoTune"
       },
       "_bypass": {
@@ -1323,15 +1240,11 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Bypass"
       },
       "momlatch": {
         "number":15,
         "type":"checkbox",
-        "moveOptions":[0],
-        "double":"r",
         "value":0,
         "min":0,
         "max":1,
@@ -1422,13 +1335,11 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,1,2,4],
         "name":"Bypass"
       },
       "tap":{
         "number":8,
         "type":"button",
-        "moveOptions":[0,3,4],
         "value":1,
         "label":"Tap",
         "dual":0,
@@ -1448,7 +1359,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "label":"DelayKnob",
         "dual":1,
@@ -1460,7 +1370,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3],
         "value":1,
         "dual":0,
         "name":"Delay Down"
@@ -1471,7 +1380,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,1,2,3,4],
         "name":"Delay Hold"
       },
       "potState":{
@@ -1484,7 +1392,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "value":1,
         "name":"PotSend",
         "label":"PotSend",
@@ -1493,161 +1400,6 @@
       "internalPot": {
         "number":15,
         "type":"hidden"
-      }
-    }
-  },
-  "cvswitcher":{
-    "number":15,
-    "name":"CV switch",
-    "id":"cvswitch",
-    "online":0,
-    "param":{
-      "8pf":{
-        "number":1,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"8 Step -> Pitch Fork"
-      },
-      "8mb":{
-        "number":2,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"8 Step -> Memory Boy"
-      },
-      "8pu":{
-        "number":3,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"8 Step -> Super Pulsar"
-      },
-      "8re":{
-        "number":4,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"8 Step -> Ring Thing Exp"
-      },
-      "8rm":{
-        "number":5,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"8 Step -> Ring Thing Mod"
-      },
-      "88s":{
-        "number":6,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"8 Step -> 8 Step"
-      },
-      "8n1":{
-        "number":7,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"8 Step -> Riddle"
-      },
-      "8n2":{
-        "number":8,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"8 Step -> NS1"
-      },
-      "1pf":{
-        "number":9,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"NS1 -> Pitch Fork"
-      },
-      "1mb":{
-        "number":10,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"NS1 -> Memory Boy"
-      },
-      "1pu":{
-        "number":11,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"NS1 -> Super Pulsar"
-      },
-      "1re":{
-        "number":12,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"NS1 -> Ring Thing Exp"
-      },
-      "1rm":{
-        "number":13,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"NS1 -> Ring Thing Mod"
-      },
-      "18s":{
-        "number":14,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"NS1 -> 8 Step"
-      },
-      "1n1":{
-        "number":15,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"NS1 -> Riddle"
-      },
-      "1n2":{
-        "number":16,
-        "type":"select",
-        "value":0,
-        "menuItems":["off","on"],
-        "name":"NS1 -> NS1"
-      }
-    }
-  },
-  "bigmuff":{
-    "number":32,
-    "name":"Big Muff",
-    "id":"bigmuff",
-    "type":"Distortion",
-    "online":0,
-    "param":{
-      "_bypass": {
-        "number":"9",
-        "type":"checkbox",
-        "value":0,
-        "min":0,
-        "max":1,
-        "moveOptions":[0,1,2],
-        "name":"Bypass"
-      }
-    }
-  },
-  "chillswitch":{
-    "number":33,
-    "name":"Chill Switch",
-    "id":"chillswitch",
-    "online":0,
-    "param":{
-      "_bypass": {
-        "number":9,
-        "type":"checkbox",
-        "value":0,
-        "min":0,
-        "max":1,
-        "moveOptions":[0,1,2],
-        "name":"Bypass"
       }
     }
   },
@@ -1687,7 +1439,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "dual":1,
         "label":"Loop",
@@ -1699,7 +1450,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "dual":0,
         "name":"Overdub"
@@ -1710,7 +1460,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "dual":0,
         "label":"Stop",
@@ -1722,7 +1471,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,3,4],
         "value":1,
         "label":"Tap",
         "dual":0,
@@ -1746,7 +1494,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0],
         "name":"PotSend"
       },
       "internalPot": {
@@ -1915,8 +1662,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"Play"
       },
       "reset":{
@@ -1925,8 +1670,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Reset"
       },
       "tap":{
@@ -1935,8 +1678,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"Tap"
       },
       "tapdivideb":{
@@ -1945,8 +1686,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Tap Divide"
       },
       "epxmodeb":{
@@ -1955,8 +1694,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"Exp Mode"
       },
       "encmodeb":{
@@ -1965,18 +1702,17 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Encode Mode"
       }
     }
   },
   "fivehundred": {
-    "number":4,
+    "number":11,
     "name":"DD500",
     "id":"fivehundred",
+    "midiName":"DD-500",
     "type":"Delay",
-    "online":0,
+    "online":1,
     "midi":1,
     "param": {
       "level":{
@@ -1986,6 +1722,9 @@
         "min":0,
         "max":100,
         "name":"E Level"
+      },
+      "bank": {
+        
       },
       "feedback":{
         "number":18,
@@ -2017,7 +1756,7 @@
         "value":0,
         "min":0,
         "max":127,
-        "name":"Master Vol"
+        "name":"Delay"
       },
       "expression":{
         "number":16,
@@ -2033,8 +1772,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"Effect A"
       },
       "effb":{
@@ -2043,8 +1780,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Effect B"
       },
       "tapctl":{
@@ -2053,7 +1788,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,1,2,4],
         "name":"Tap/CTL"
       },
       "ctlone":{
@@ -2062,8 +1796,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"CTL 1"
       },
       "ctltwo":{
@@ -2072,8 +1804,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"CTL 2"
       }
     }
@@ -2083,7 +1813,7 @@
     "name":"Analog Drive",
     "id":"analogdrive",
     "midiName":"Volante",
-    "online":1,
+    "online":0,
     "type":"Distortion",
     "midi":1,
     "param":{
@@ -2212,7 +1942,7 @@
         "max":88,
         "name":"Pitch Semitones"
       },
-      "loop":{
+      "hold":{
         "number":80,
         "type":"checkbox",
         "value":0,
@@ -2227,6 +1957,60 @@
         "min":0,
         "max":127,
         "name":"Effect footswitch"
+      },
+      "looprec": {
+        "number":87,
+        "type":"button",
+        "value":0,
+        "min":127,
+        "max":127,
+        "name":"Record Loop",
+        "autofill":1
+      },
+      "loopoverdub": {
+        "number":87,
+        "type":"button",
+        "value":0,
+        "min":96,
+        "max":96,
+        "name":"Overdub Loop",
+        "autofill":1
+      },
+      "loopplay": {
+        "number":87,
+        "type":"button",
+        "value":0,
+        "min":64,
+        "max":64,
+        "name":"Play Loop",
+        "autofill":1
+      },
+      "looptrigger": {
+        "number":87,
+        "type":"button",
+        "value":0,
+        "min":48,
+        "max":48,
+        "name":"Trigger Loop",
+        "autofill":1
+      },
+      "loopstop": {
+        "number":87,
+        "type":"button",
+        "value":0,
+        "min":24,
+        "max":24,
+        "name":"Stop Loop",
+        "autofill":1
+      },
+      "loopclear": {
+        "number":87,
+        "type":"button",
+        "value":0,
+        "min":0,
+        "max":0,
+        "name":"Clear Loop",
+        "autofill":1
       }
     }
   },
@@ -2469,7 +2253,7 @@
         "max":127,
         "name":"repeats"
       },
-      "head1lvl":{
+      "level1":{
         "number":25,
         "type":"range",
         "value":0,
@@ -2477,7 +2261,7 @@
         "max":127,
         "name":"Head1 Level"
       },
-      "head2lvl":{
+      "level2":{
         "number":26,
         "type":"range",
         "value":0,
@@ -2485,7 +2269,7 @@
         "max":127,
         "name":"Head2 Level"
       },
-      "head3lvl":{
+      "level3":{
         "number":27,
         "type":"range",
         "value":0,
@@ -2493,7 +2277,7 @@
         "max":127,
         "name":"Head3 Level"
       },
-      "head4lvl":{
+      "level4":{
         "number":28,
         "type":"range",
         "value":0,
@@ -2501,7 +2285,7 @@
         "max":127,
         "name":"Head4 Level"
       },
-      "head1pan":{
+      "pan1":{
         "number":29,
         "type":"range",
         "value":0,
@@ -2509,7 +2293,7 @@
         "max":127,
         "name":"Head1 Pan"
       },
-      "head2pan":{
+      "pan2":{
         "number":30,
         "type":"range",
         "value":0,
@@ -2517,7 +2301,7 @@
         "max":127,
         "name":"Head2 Pan"
       },
-      "head3pan":{
+      "pan3":{
         "number":31,
         "type":"range",
         "value":0,
@@ -2525,7 +2309,7 @@
         "max":127,
         "name":"Head3 pan"
       },
-      "head4pan":{
+      "pan4":{
         "number":32,
         "type":"range",
         "value":0,
@@ -2533,7 +2317,7 @@
         "max":127,
         "name":"Head4 Pan"
       },
-      "head1fb":{
+      "feedback1":{
         "number":34,
         "type":"checkbox",
         "value":0,
@@ -2541,7 +2325,7 @@
         "max":127,
         "name":"Head1 Feedback"
       },
-      "head2fb":{
+      "feedback2":{
         "number":35,
         "type":"checkbox",
         "value":0,
@@ -2549,7 +2333,7 @@
         "max":127,
         "name":"Head2 Feedback"
       },
-      "head3fb":{
+      "feedback3":{
         "number":36,
         "type":"checkbox",
         "value":0,
@@ -2557,7 +2341,7 @@
         "max":127,
         "name":"Head3 Feedback"
       },
-      "head4fb":{
+      "feedback4":{
         "number":37,
         "type":"checkbox",
         "value":0,
@@ -2613,13 +2397,21 @@
         "max":1,
         "name":"Reverse"
       },
+      "holdosc": {
+        "number":45,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Hold (w/ osc)"
+      },
       "hold": {
         "number":46,
         "type":"checkbox",
         "value":0,
         "min":0,
         "max":1,
-        "name":"hold"
+        "name":"Hold (w/o osc)"
       },
       "soslevel":{
         "number":48,
@@ -2628,6 +2420,14 @@
         "min":0,
         "max":127,
         "name":"SOS-level"
+      },
+      "tap": {
+        "number":82,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Tap Switch"
       }
     }
   },
@@ -2798,8 +2598,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"Bypass"
       },
       "envelope":{
@@ -2808,8 +2606,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Envelope"
       },
       "specgate":{
@@ -2818,8 +2614,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"Spectral Gate"
       },
       "expreverse":{
@@ -2828,8 +2622,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Exp Reverse"
       },
       "expmode":{
@@ -2878,202 +2670,7 @@
         "value":0,
         "min":0,
         "max":1,
-        "moveOptions":[0,1,2,4],
         "name":"Bypass"
-      }
-    }
-  },
-  "volcabass": {
-    "number":4,
-    "name":"Volca Bass",
-    "id":"volcabass",
-    "online":0,
-    "midi":1,
-    "param": {
-      "slidetime":{
-        "number":5,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Slide Time"
-      },
-      "expression":{
-        "number":11,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Expression"
-      },
-      "lforate":{
-        "number":41,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"LFO Rate"
-      },
-      "lfoint":{
-        "number":42,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"LOF Int"
-      },
-      "vcopitchone":{
-        "number":43,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"VCO Pitch 1"
-      },
-      "vcopitchtwo":{
-        "number":44,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"VCO Pitch 2"
-      },
-      "vcopitchthree":{
-        "number":45,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"VCO Pitch 3"
-      },
-      "egattack":{
-        "number":46,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"EG Attack"
-      },
-      "egdecay":{
-        "number":47,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"EG Decay/Release"
-      },
-      "cutoffint":{
-        "number":48,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Cutoff EG Int"
-      },
-      "gatetime":{
-        "number":49,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Gate Time"
-      }
-    }
-  },
-  "volcafm": {
-    "number":1,
-    "name":"Volca FM",
-    "id":"volcafm",
-    "online":0,
-    "midi":1,
-    "param": {
-      "transpose":{
-        "number":40,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Transpose"
-      },
-      "velocity":{
-        "number":41,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Velocity"
-      },
-      "modulatorattack":{
-        "number":42,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Modulator Attack"
-      },
-      "modulatordecay":{
-        "number":43,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Modulator Decay"
-      },
-      "carrierattack":{
-        "number":44,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Carrier Attack"
-      },
-      "carrierdecay":{
-        "number":45,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Carrier Decay"
-      },
-      "lforate":{
-        "number":46,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"LFO Rate"
-      },
-      "lfopitchdepth":{
-        "number":47,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"LFO Pitch Depth"
-      },
-      "algorithm":{
-        "number":48,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Algorithm"
-      },
-      "arptype":{
-        "number":49,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Arp Type"
-      },
-      "arpdiv":{
-        "number":50,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":127,
-        "name":"Arp Div"
       }
     }
   },
@@ -3121,8 +2718,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0,1,2,4],
         "name":"Bypass"
       },
       "hold":{
@@ -3131,8 +2726,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Hold"
       },
       "potSend": {
@@ -3141,8 +2734,6 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"l",
-        "moveOptions":[0],
         "name":"PotSend"
       },
       "internalPot": {
@@ -3155,147 +2746,8 @@
         "value":0,
         "min":0,
         "max":1,
-        "double":"r",
-        "moveOptions":[0,1,2,4],
         "name":"Direct"
-      }
-    }
-  },
-  "matrix":{
-    "number":21,
-    "name":"Mixer",
-    "id":"matrix",
-    "online":0,
-    "param":{
-      "i1o1":{
-        "number":1,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 1 -> Out 1"
-      },
-      "i1o2":{
-        "number":2,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 1 -> Out 2"
-      },
-      "i1o3":{
-        "number":3,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 1 -> Out 3"
-      },
-      "i1o4":{
-        "number":4,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 1 -> Out 4"
-      },
-      "i2o1":{
-        "number":5,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 2 -> Out 1"
-      },
-      "i2o2":{
-        "number":6,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 2 -> Out 2"
-      },
-      "i2o3":{
-        "number":7,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 2 -> Out 3"
-      },
-      "i2o4":{
-        "number":8,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 2 -> Out 4"
-      },
-      "i3o1":{
-        "number":9,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 3 -> Out 1"
-      },
-      "i3o2":{
-        "number":10,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 3 -> Out 2"
-      },
-      "i3o3":{
-        "number":11,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 3 -> Out 3"
-      },
-      "i3o4":{
-        "number":12,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 3 -> Out 4"
-      },
-      "i4o1":{
-        "number":13,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 4 -> Out 1"
-      },
-      "i4o2":{
-        "number":14,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 4 -> Out 2"
-      },
-      "i4o3":{
-        "number":15,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 4 -> Out 3"
-      },
-      "i4o4":{
-        "number":16,
-        "type":"range",
-        "value":0,
-        "min":0,
-        "max":255,
-        "name":"In 4 -> Out 4"
       }
     }
   }
 }
-

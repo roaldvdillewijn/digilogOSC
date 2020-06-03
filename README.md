@@ -18,14 +18,30 @@ The pedals shown are the current active pedals with a serial connection. I need 
 
 ### normal control ###
 control the pedals with OSC-messages:  
-`/pedal/param value`  
+`/pedal/param <value>`  
 
 for example:  
 `/canyon/delaytime 40`
 
+#### pedal-specific functions ####
+
+`/pedal/sample <time [slot]>`
+
+Record a sample for one of the following pedals:  
+Tensor, Volante, Looper (22500, slot: a || b), Canyon  
+
+`/tensor/sample 5000`  
+`/looper/sample 5000 a`
+
+------
+
+`/pedal/stopSample 1`
+stop the looping sample (both for 22500)
+
+
 ### createSeq ###
 Function for creating sequencer values for the Ottobit jr. Generates random notes for the 6 sequencer steps:  
-`/ottobit/createSeq scale [chance]`  
+`/ottobit/createSeq <scale [chance]>`  
 
 The scale can be:  
 

@@ -116,6 +116,10 @@ class Pedal {
               returndata.midi = 2;
               returndata.param = [pdl.param[prm].msb,pdl.param[prm].lsb];
             }
+            else if (pdl.param[prm].autofill) {
+              returndata.param = pdl.param[prm].number;
+              returndata.value = pdl.param[prm].min;
+            }
             else {
               returndata.param = pdl.param[prm].number;
             }
