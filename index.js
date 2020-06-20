@@ -7,7 +7,6 @@ const Midi = require('./App/Midi').Midi;
 const ExtraPedalFunctions = require('./App/ExtraPedalFunctions').ExtraPedalFunctions;
 const midiList = {};
 
-
 Server.start();
 Server.socket(() => {
   Server.receive(data => {
@@ -61,50 +60,25 @@ Osc.handleData((msg,raw) => {
           Osc.setState("/"+returndata.pedal+"/"+returndata.param);
         }
         else{
-          Pedal.getPedalData(returndata,data => {
-            if (data) {
-              Pedal.setValue(data);
-              if (data.midi == 1) {
-                midiList[data.id].write(data,(midiData => {
-                  Server.send({address:"serialData",value:midiData});
-                }));
-              }
-              else if (data.midi == 2) {
-                midiList[data.id].writeLSB(data,midiData => {
-                  Server.send({address:"serialData",value:midiData});
-                })
-              }
-              else {
-                Serial.write(data,(serialData => {
-                  Server.send({address:"serialData",value:serialData});
-                }));
-              }
-            }
-          })
+          handlePedalData(returndata);
         }
       }
     });
-    Pedal.getPedalData(msg,data => {
-      if (data) {
-        Pedal.setValue(data);
-        if (data.midi == 1) {
-          midiList[data.id].write(data,(midiData => {
-            Server.send({address:"serialData",value:midiData});
-          }));
-        }
-        else if (data.midi == 2) {
-          midiList[data.id].writeLSB(data,midiData => {
-            Server.send({address:"serialData",value:midiData});
-          })
-        }
-        else {
-          Serial.write(data,(serialData => {
-            Server.send({address:"serialData",value:serialData});
-          }));
-        }
-      }
-    })
+    handlePedalData(msg);
   }
 });
 
+function handlePedalData(pedalData) {
+  Pedal.getPedalData(pedalData,data => {
+    if (data) {
+      Pedal.setValue(data);
+      if (data.midi) {
+        midiList[data.id].write(data,Server);
+      }
+      else {
+        Serial.write(data,Server);
+      }
+    }
+  })
+}
 

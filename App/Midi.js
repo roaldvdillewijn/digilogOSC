@@ -34,17 +34,19 @@ class Midi {
     this.connected = 1;
     callback();
   }
-  write(data,callback) {
-    let midiMessage = [175+this.channel,data.param,data.value];
-    this.port.sendMessage(midiMessage);
-    callback(midiMessage);
-  }
-  writeLSB(data,callback) {
-    let midiMessagemsb = [175+this.channel,data.param[0],data.value>>1]
-    this.port.sendMessage(midiMessagemsb);
-    let midiMessagelsb = [175+this.channel,data.param[1],(data.value%2)<<6]
-    this.port.sendMessage(midiMessagelsb);
-    callback([midiMessagemsb,midiMessagelsb]);
+  write(data,Server) {
+    if (data.midi == 1) {
+      let midiMessage = [175+this.channel,data.param,data.value];
+      this.port.sendMessage(midiMessage);
+      Server.send({address:"serialData",value:midiMessage});  
+    }
+    else {
+      let midiMessagemsb = [175+this.channel,data.param[0],data.value>>1]
+      this.port.sendMessage(midiMessagemsb);
+      let midiMessagelsb = [175+this.channel,data.param[1],(data.value%2)<<6]
+      this.port.sendMessage(midiMessagelsb);
+      Server.send({address:"serialData",value:[midiMessagemsb,midiMessagelsb]});
+    }
   }
 }
 

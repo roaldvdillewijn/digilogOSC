@@ -17,13 +17,7 @@ class Serial {
             if (this.port) {
               console.log("listening...");
               this.port.on('data',data => {
-                if (data[0] == 129 && data[2] == 250) {
-                  for (let j=0;j<(data.length/3);j++) {
-                    if (data[(j*3)] == 129 && data[(j*3)+2] == 250) {
-                      console.log(data[(j*3)+1]);
-                    }
-                  }
-                }
+                this.handleData(data);
               })
             }
           })
@@ -31,13 +25,22 @@ class Serial {
       });
     });
   }
+  handleData(data) {
+    if (data[0] == 129 && data[2] == 250) {
+      for (let j=0;j<(data.length/3);j++) {
+        if (data[(j*3)] == 129 && data[(j*3)+2] == 250) {
+          console.log(data[(j*3)+1]);
+        }
+      }
+    }
+  }
   checkPedals() {
     if (this.port) {
       let serialMessage = [255, 0, 254, 1, 253, 2];
       this.port.write(serialMessage)
     }
   }
-  write(data,callback) {
+  write(data,Server) {
     if (this.port) {
       if (data.ramp == 1) {
         let messageList = [];
@@ -51,7 +54,7 @@ class Serial {
             messageList.push(serialMessage);
           })
         })
-        callback(messageList);
+        Server.send({address:"serialData",value:messageList});
       }
       else {
         let value = Array.isArray(data.value)?data.value[0]:data.value;
@@ -61,7 +64,7 @@ class Serial {
         this.port.write(serialMessage,error => {
           console.log(serialMessage);
           if (error)console.log(error);
-          callback(serialMessage);
+          Server.send({address:"serialData",value:serialMessage});
         });
       }
     }

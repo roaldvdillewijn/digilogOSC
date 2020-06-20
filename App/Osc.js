@@ -36,7 +36,7 @@ class Osc {
         if (val[val.length - 1] == "change" && this.value[addr] != value[0]) {
           this.state[addr] = 0;
         }
-        if (val[val.length - 1] == "cont" && func == "fade") {
+        if (val[val.length - 1] == "cont" && (func == "fade" || func == "sample")) {
           this.state[addr] = 0;
         }
 
@@ -56,7 +56,7 @@ class Osc {
         }
 
         //if the osc message asks for new or updated hold function, do so.
-        if (val[val.length - 1] == "once" && func == "fade") {
+        if (val[val.length - 1] == "once" && (func == "fade" || func == "sample")) {
           this.state[addr] = 1;
         }
         if (val[val.length - 1] == "once" && func == "oscillate") {
@@ -69,8 +69,15 @@ class Osc {
         if (val[val.length - 1] == "loop") {
           this.state[addr] = 4;
         }
+        if (func == "stopSample") {
+          this.state[addr] = 1;
+          this.state["/"+addr.split("/")[1]+"/sample"] = 0;
+        }
         if (func == "stop") {
           this.stop[addr] = 1;
+        }
+        if (func == "sample") {
+          this.state["/"+addr.split("/")[1]+"stopSample"] = 0;
         }
       });
     }

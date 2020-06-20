@@ -3,7 +3,7 @@
 		"number": 11,
 		"name":"Cathedral",
     "id":"cathedral",
-    "online":0,
+    "online":1,
     "type":"Reverb",
 		"param": {
 			"blend": {
@@ -11,7 +11,7 @@
 				"type":"range",
         "value":0,
         "min":0,
-				"max":255,
+				"max":1023,
         "name":"Blend"
 		  },
       "reverbtime": {
@@ -19,7 +19,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Reverb Time"
       },
       "damping": {
@@ -27,7 +27,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Damping"
       },
       "feedback": {
@@ -35,7 +35,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Feedback"
       },
       "predelay": {
@@ -43,7 +43,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Pre Delay"
       },
       "_mode": {
@@ -61,13 +61,13 @@
         "max":1,
         "name":"Bypass"
       },
-      "infinite": {
+      "freeze": {
         "number":13,
         "type":"checkbox",
         "value":0,
         "min":0,
         "max":1,
-        "name":"Infinite"
+        "name":"Freeze"
       },
       "tap": {
         "number":9,
@@ -109,32 +109,31 @@
         "max":255,
         "name":"BPM"
       },
-      "potstate": {
-        "number":15,
-        "type":"hidden",
-        "name":"Potstate"
-      },
-      "potSend": {
-        "number":16,
-        "type":"checkbox",
-        "value":0,
-        "min":0,
-        "max":1,
-        "name":"PotSend"
-      },
       "momlatch": {
-        "number":18,
+        "number":15,
         "type":"checkbox",
         "value":0,
         "min":0,
         "max":1,
         "name":"MomLatch"
       },
-      "internalPot": {
-        "number":17,
-        "type":"hidden"
+      "ramp": {
+        "number":21,
+        "type":"ramp",
+        "setup": {
+          "pot":16,
+          "min":17,
+          "max":18,
+          "timetwo":19,
+          "time":20,
+          "exp":21
+        },
+       "name":"Ramp",
+       "value":"~",
+       "min":"~",
+       "max":"~" 
       }
-	 }
+	  }
   },
   "canyon": {
     "number":19,
@@ -306,7 +305,7 @@
     "name":"ODB-3",
     "id":"bassoverdrive",
     "type":"overdrive",
-    "online":1,
+    "online":0,
     "param": {
       "bypass": {
         "number":1,
@@ -330,7 +329,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Blend"
       },
       "attack": {
@@ -338,7 +337,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Attack"
       },
       "decay": {
@@ -346,7 +345,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Decay"
       },
       "_bypass": {
@@ -923,7 +922,7 @@
     "number":16,
     "name":"22500",
     "id":"looper",
-    "online":1,
+    "online":0,
     "type":"Looper",
     "param":{
       "lpavol": { 
@@ -1154,7 +1153,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Blend"
       },
       "wave":{
@@ -1162,7 +1161,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Wave"
       },
       "filter":{
@@ -1170,7 +1169,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Filter"
       },
       "fine":{
@@ -1178,7 +1177,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Fine"
       },
       "coarse":{
@@ -1186,7 +1185,7 @@
         "type":"range",
         "value":0,
         "min":0,
-        "max":255,
+        "max":1023,
         "name":"Coarse"
       },
       "pitch": {
@@ -1712,7 +1711,7 @@
     "id":"fivehundred",
     "midiName":"DD-500",
     "type":"Delay",
-    "online":1,
+    "online":0,
     "midi":1,
     "param": {
       "level":{
@@ -1813,7 +1812,7 @@
     "name":"Analog Drive",
     "id":"analogdrive",
     "midiName":"Volante",
-    "online":0,
+    "online":1,
     "type":"Distortion",
     "midi":1,
     "param":{
@@ -1882,6 +1881,154 @@
         "min":0,
         "max":127,
         "name":"Bypass"
+      }
+    }
+  },
+  "particle": {
+    "number":1,
+    "name":"Particle",
+    "id":"particle",
+    "midiName":"Particle",
+    "online":1,
+    "type":"delay/pitch",
+    "midi":1,
+    "param": {
+      "blend": {
+        "number":12,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Blend"
+      },
+      "chop": {
+        "number":13,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Chop"
+      },
+      "freezethresh": {
+        "number":14,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Freeze Threshold"
+      },
+      "feedback": {
+        "number":15,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Feedback"
+      },
+      "delay": {
+        "number":16,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Delay"
+      },
+      "delayrnd": {
+        "number":17,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Delay Random"
+      },
+      "pitch": {
+        "number":18,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Pitch"
+      },
+      "pitchdetune": {
+        "number":19,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Pitch Detune"
+      },
+      "pitchrnd": {
+        "number":20,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Pitch Random"
+      },
+      "dens": {
+        "number":21,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Density"
+      },
+      "direction": {
+        "number":122,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Direction"
+      },
+      "lforate": {
+        "number":25,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"LFO Rate"
+      },
+      "feedbacklpf": {
+        "number":27,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Feedback LPF"
+      },
+      "freeze": {
+        "number":80,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Freeze"
+      },
+      "_bypass": {
+        "number":81,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Bypass"
+      },
+      "_mode": {
+        "number":102,
+        "type":"select",
+        "menuItems":["Pitch/dens","Pitch/LFO","Pitch/detune","Delay/rnd","Delay/pitch","Delay/rev","Delay/LFO","Delay/dens"],
+        "value":0,
+        "min":0,
+        "max":7,
+        "name":"Mode"
+      },
+      "freezemode": {
+        "number":118,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":1,
+        "name":"Freeze Mode"        
       }
     }
   },

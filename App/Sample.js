@@ -25,20 +25,24 @@ class Sample {
   //functions for the pedals
   stopVolante(callback) {
     this.setPedal("volante");
+    callback(this.setPedalData("hold",0));
     callback(this.setPedalData("sos",0));
     callback(this.setPedalData("_bypass",0));
   }
   volante(speed,callback) {
+    let sp = (speed.length > 1)?speed[0]:speed;
     this.setPedal("volante");
+    if (sp > 16000 && sp < 32000) callback(this.setPedalData("speed",3));
+    if (sp > 32000) callback(this.setPedalData("speed",1));
     callback(this.setPedalData("_bypass",1));
     callback(this.setPedalData("sos",1));
     callback(this.setPedalData("tap",1));
     this.wait("tap",0,50).then(done => {
       callback(done);
     });
-    this.wait("tap",1,speed).then(done => {
+    this.wait("tap",1,sp).then(done => {
       callback(done);
-      callback(this.setPedalData("hold",0));
+      callback(this.setPedalData("hold",1));
       this.wait("tap",0,50).then(done => {
         callback(done);
       })
@@ -49,16 +53,17 @@ class Sample {
     callback(this.setPedalData("stop",1));
   }
   looper(speed,loop,callback) {
+    let sp = (speed.length > 1)?speed[0]:speed;
     this.setPedal("looper");
     if (loop == "A" || loop == "a"){
       callback(this.setPedalData("lpa",1));
-      this.wait("lpa",1,speed).then(done => {
+      this.wait("lpa",1,sp).then(done => {
         callback(done);
       });
     }
     if (loop == "B" || loop == "b") {
       callback(this.setPedalData("lpb",1));
-      this.wait("lpb",1,speed).then(done => {
+      this.wait("lpb",1,sp).then(done => {
         callback(done);
       });
     }
@@ -68,7 +73,8 @@ class Sample {
     callback(this.setPedalData("_bypass",0));
   }
   canyon(speed,callback) {
-    let sp = (speed>3000)?3000:speed;
+    let sp = (speed.length > 1)?speed[0]:speed;
+    sp = (sp>3000)?3000:sp;
     this.setPedal("mixer");
     callback(this.setPedalData("channel2",1));
     this.setPedal("canyon");
@@ -82,12 +88,14 @@ class Sample {
       callback(this.setPedalData("channel2",0));
     })
   }
-  tensorStop(callback) {
+  stopTensor(callback) {
     this.setPedal("tensor");
     callback(this.setPedalData("loopclear",0));
   }
   tensor(speed,callback) {
-    let sp = (speed>4800)?4800:speed;
+    let sp = (speed.length > 1)?speed[0]:speed;
+    sp = (sp>4800)?4800:sp;
+    console.log(sp);
     this.setPedal("tensor");
     callback(this.setPedalData("speed",127));
     callback(this.setPedalData("stretch",64));
