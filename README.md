@@ -1,4 +1,4 @@
-# digilogOSC
+# digilogOSC #
 control guitar pedals via OSC-messages
 
 ## install ##
@@ -6,13 +6,35 @@ control guitar pedals via OSC-messages
 * go to folder in terminal
 * npm install
 * npm start
-* go to localhost:8001 in the browser for the web-editor
+* go to localhost:8001 in the browser for the web-interface
 
 at this moment this software is theoretical capable of converting OSC messages to serial message that control modified guitar pedals. 
 
 The web interface show some information about the pedals and the possible OSC-messages and the ranges of their values. 
 
 The pedals shown are the current active pedals with a serial connection. I need to add the pedals with midi control. 
+
+## add your own midi-enabled devices ##
+If you want to add some of your own devices you can add them to `pedals.json`:
+
+```
+"particle": { //name of the pedal & first part of OSC-address
+    "number":1, // midi-channel
+    "name":"Particle", //Full name, used for the web interface
+    "id":"particle", 
+    "midiName":"Particle", //name of the midi-device, not necessarily same as pedal-name
+    "online":1, //needs to be 1 to pop-up in web interface and to be able to send messages to it
+    "type":"delay/pitch", //info for in the web-interface
+    "midi":1, //needs to be one if it's a midi-device. 
+    "param": { //add parameters here
+      "blend": { //name of the parameter, second part of OSC-address
+        "number":12, //cc-number
+        "value":0, // default value
+        "min":0, //minimum value
+        "max":127, //maximum value
+        "name":"Blend" //name for web-interface
+      },[....] //add more parameters here..
+```
 
 ## functions ##
 
