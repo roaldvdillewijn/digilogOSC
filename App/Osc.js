@@ -6,6 +6,7 @@ class Osc {
     this.stop = {};
     this.value = {};
     this.funcs = ["fade","oscillate","stop"];
+    this.appendix = ["once","change","loop","cont"];
   }
   createServer() {
     this.server = new osc.Server(9000,'0.0.0.0');
@@ -18,65 +19,60 @@ class Osc {
         if (msg[0] == "/checkPedals")callback("/checkPedals");
         
         //get the pedal+param-address of the message
-        let addr = msg[0];
-        let value = (val.length == 1) ? val[0] : val;
-        let func = msg[0].split("/")[2];
-        if (this.funcs.includes(func)) {
-          addr = "/" + msg[0].split("/")[1] + "/" + val[0];
-        }
         
-        if (func == "fade" || func == "oscillate") {
+        let pedal = msg[0].split("/")[1];
+        let param = msg[0].split("/")[2];
+        let value = (val.length == 1) ? val[0] : val;
+        let last = val[val.length -1];
+        let addr = (this.funcs.includes(param))?"/" + pedal + "/" + val[0]:msg[0];
+                
+        if (param == "fade" || param == "oscillate") {
           this.stop[addr] = 0;
         }
 
         //check if any hold-function (once || change) should be switched off
-        if (val[val.length - 1] != "once" && val[val.length - 1] != "change" && val[val.length - 1] != "loop" && val[val.length - 1] != "cont") {
+        if (!this.appendix.includes(last)) this.state[addr] = 0;
+        if (last == "change" && this.value[addr] != value[0]) {
           this.state[addr] = 0;
         }
-        if (val[val.length - 1] == "change" && this.value[addr] != value[0]) {
-          this.state[addr] = 0;
-        }
-        if (val[val.length - 1] == "cont" && (func == "fade" || func == "sample")) {
+        if (last == "cont" && (param == "fade" || param == "sample")) {
           this.state[addr] = 0;
         }
 
+        console.log(this.state[addr],addr);
         //if no hold function, return the incoming OSC-data. 
-        if (!this.state[addr] && func != "stop") {
-          (val.length == 4 && msg[0].split("/")[2] == "ramp") ? val.push(50) : null;
-          let returndata = {"pedal":0, "param":0, "value":value};
-          returndata.pedal = msg[0].split("/")[1];
-          returndata.param = msg[0].split("/")[2];
+        if (!this.state[addr] && param != "stop") {
+          (val.length == 4 && param == "ramp") ? val.push(50) : null;
+          let returndata = {"pedal":pedal, "param":param, "value":value}; 
           callback(returndata,msg);
         }
-        else if (!this.stop[addr] && func == "stop") {
-          let returndata = {"pedal":0, "param":0, "value":value};
-          returndata.pedal = msg[0].split("/")[1];
-          returndata.param = msg[0].split("/")[2];
+        else if (!this.stop[addr] && param == "stop") {
+          let returndata = {"pedal":pedal, "param":param, "value":value};
           callback(returndata,msg);
         }
 
         //if the osc message asks for new or updated hold function, do so.
-        if (val[val.length - 1] == "once" && (func == "fade" || func == "sample")) {
+        if (last == "once" && (param == "fade" || param == "sample")) {
           this.state[addr] = 1;
         }
-        if (val[val.length - 1] == "once" && func == "oscillate") {
+        if (last == "once" && param == "oscillate") {
           this.state[addr] = 3;
         }
-        if (val[val.length - 1] == "change") {
+        if (last == "change") {
           this.state[addr] = 2;
           this.value[addr] = value[0];
         }
-        if (val[val.length - 1] == "loop") {
+        if (last == "loop") {
           this.state[addr] = 4;
         }
-        if (func == "stopSample") {
+        if (param == "stopSample") {
           this.state[addr] = 1;
           this.state["/"+addr.split("/")[1]+"/sample"] = 0;
         }
-        if (func == "stop") {
+        if (param == "stop") {
           this.stop[addr] = 1;
         }
-        if (func == "sample") {
+        if (param == "sample") {
           this.state["/"+addr.split("/")[1]+"stopSample"] = 0;
         }
       });

@@ -2032,6 +2032,137 @@
       }
     }
   },
+  "context": {
+    "number":6,
+    "name":"Context",
+    "id":"context",
+    "midiName":"Volante",
+    "online":1,
+    "type":"reverb",
+    "midi":1,
+    "param":{
+      "blend":{
+        "number":12,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Blend"
+      },
+      "predelay":{
+        "number":13,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Pre-Delay"
+      },
+      "decay":{
+        "number":14,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Decay"
+      },
+      "low":{
+        "number":15,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Low"
+      },
+      "high":{
+        "number":16,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"High"
+      },
+      "modamount":{
+        "number":17,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Modulation Amount"
+      },
+      "modrate":{
+        "number":18,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Modulation Rate"
+      },
+      "deltime":{
+        "number":20,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Delay Time"
+      },
+      "feedback":{
+        "number":21,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Feedback"
+      },
+      "balance":{
+        "number":22,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Balance"
+      },
+      "threshold":{
+        "number":23,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Threshold"
+      },
+      "recovery":{
+        "number":24,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Recovery Time"
+      },
+      "_bypass":{
+        "number":88,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Bypass"
+      },
+      "infdry":{
+        "number":86,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Infinte Dry"
+      },
+      "infwet":{
+        "number":87,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Infinite Wet"
+      }
+    }
+  },
   "tensor": {
     "number":1,
     "name":"Tensor",
@@ -2158,6 +2289,154 @@
         "max":0,
         "name":"Clear Loop",
         "autofill":1
+      }
+    }
+  },
+    "hedra": {
+    "number":5,
+    "name":"Hedra",
+    "id":"hedra",
+    "midiName":"Volante",
+    "online":1,
+    "type":"pitch/delay",
+    "midi":1,
+    "param":{
+      "_bypass": {
+        "number":14,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Bypass"
+      },
+      "tempo": {
+        "number":15,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Tempo"
+      },
+      "key": {
+        "number":16,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Key"
+      },
+      "microtune": {
+        "number":17,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Micro Tune"
+      },
+      "mix": {
+        "number":18,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Mix"
+      },
+      "pitch1": {
+        "number":19,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Pitch 1"
+      },
+      "pitch2": {
+        "number":20,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Pitch 2"
+      },
+      "pitch3": {
+        "number":21,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Pitch 3"
+      },
+      "scale": {
+        "number":22,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Scale"
+      },
+      "pitchcorretion": {
+        "number":23,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":63,
+        "name":"Pitch Correction"
+      },
+      "glide": {
+        "number":23,
+        "type":"range",
+        "value":64,
+        "min":64,
+        "max":127,
+        "name":"Glide"
+      },
+      "feedback": {
+        "number":24,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Feedback"
+      },
+      "timediv1": {
+        "number":25,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Time Division 1"
+      },
+      "timediv2": {
+        "number":26,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Time Division 2"
+      },
+      "timediv3": {
+        "number":27,
+        "type":"range",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Time Division 3"
+      },
+      "swell": {
+        "number":31,
+        "type":"checkbox",
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Swell"
+      },
+      "_mode": {
+        "number":29,
+        "type":"select",
+        "menuItems":["series + pitch fbk","Series","Dual + cross fb","Dual"],
+        "value":0,
+        "min":0,
+        "max":127,
+        "name":"Delay Mode"
       }
     }
   },

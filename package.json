@@ -13,7 +13,7 @@
     "express": "4.17.1",
     "midi": "1.0.0",
     "node-ipc": "9.1.1",
-    "node-osc": "4.1.4",
+    "node-osc": "5.2.1",
     "serialport": "8.0.5",
     "socket.io": "2.3.0"
   }
