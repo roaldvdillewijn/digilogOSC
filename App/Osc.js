@@ -17,6 +17,7 @@ class Osc {
         let val = [...msg];
         val.shift();
         if (msg[0] == "/checkPedals")callback("/checkPedals");
+        if (msg[0] == "/mercury" && val[0] == "silence")callback("/killAll");
         
         //get the pedal+param-address of the message
         
@@ -39,7 +40,7 @@ class Osc {
           this.state[addr] = 0;
         }
 
-        console.log(this.state[addr],addr);
+        // console.log(this.state[addr],addr);
         //if no hold function, return the incoming OSC-data. 
         if (!this.state[addr] && param != "stop") {
           (val.length == 4 && param == "ramp") ? val.push(50) : null;

@@ -37,22 +37,26 @@ Serial.connect();
 Osc.createServer();
 Osc.createClient();
 
-Pedal.getPedals(() => {
-  Pedal.getMidiPedals(res => {
-    res.map((result,index) => {
-      midiList[result.pedal] = new Midi(result);
-      midiList[result.pedal].connect(() => {
-        //something with receiving midi-data;
-      });  
-    })
+Pedal.getPedals(res => {
+  res.map((result,index) => {
+    midiList[result.pedal] = new Midi(result);
+    midiList[result.pedal].connect(() => {
+      //something with receiving midi-data;
+    });  
   });
 });
 
 Osc.handleData((msg,raw) => {
+  // console.log(msg,raw);
   if (msg == "/checkPedals") {
     Serial.checkPedals();
   }
+  if (msg == "/killAll") {
+    //checken wat er allemaal loopt en dat stoppen
+
+  }
   else {
+    // console.log(msg);
     Server.send({address:'oscData',value:raw})
     ExtraPedalFunctions.catchExtras(msg,returndata => {
       if (returndata) {

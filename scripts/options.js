@@ -1,11 +1,12 @@
 class Options extends React.Component {
   state = {
     parameters:[],
-    headers:["Param","OSC","Value","Min","Max"],
+    headers:["Param","OSC","Value","Options"],
   }
   constructor(props) {
     super(props);
     readSocket('pedalInfo',data => {
+      console.log(data);
       this.setState({
         parameters: [...this.state.parameters,data]
       });

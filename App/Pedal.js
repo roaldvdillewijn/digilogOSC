@@ -10,28 +10,32 @@ class Pedal {
       "oscillate":this.oscillate,
       "stop":this.stop};
   }
+
   getPedals(callback) {
+    let arr = [];
     for (let i in pedals) {
-      this.effects.push(pedals[i]);
+      if (pedals[i].online) {
+        this.effects.push(pedals[i]);
+        if(pedals[i].midi === 1) {
+          arr.push({
+            "pedal":pedals[i].id,
+            "midiName":pedals[i].midiName,
+            "number":pedals[i].number
+          });  
+        }  
+      }
     }
-    callback()
+    callback(arr);
   }
+
   getPedalInfo(data,callback) {
     let arr = [];
     this.effects.map(pedal => {
       if (pedal.id === data.value) {
         for (let i in pedal.param) {
-          let min,max;
-          if (pedal.param[i].type == "select") {
-            min = 0;
-            max = pedal.param[i].menuItems.length;
-          }
-          else {
-            min = pedal.param[i].min;
-            max = pedal.param[i].max;
-          }
           if (pedal.param[i].type != "hidden") {
             let optionList = "";
+            let menuItems = pedal.param[i].menuItems;
             if (pedal.param[i].type == "ramp") {
               optionList += i+" ";
               for (let j in pedal.param[i].setup) {
@@ -41,13 +45,24 @@ class Pedal {
             else {
               optionList = i;
             }
+            if (!menuItems) {
+              if (pedal.midi) {
+                menuItems = {"0 - 127":0};
+              }
+              else if (pedal.modern) {
+                menuItems = {"0 - 1023":0};
+              }
+              else {
+                menuItems = {"0 - 255":0};
+              }
+              
+            }
             arr.push({
               "id":{"text":i,"type":null},
               "param":{"text":pedal.param[i].name,"type":"text"},
               "osc":{"text":"/"+pedal.id+"/"+optionList,"type":"text"},
               "value":{"text":pedal.param[i].value,"type":"text"},
-              "min":{"text":min,"type":"text"},
-              "max":{"text":max,"type":"text"},
+              "menu":{"text":menuItems,"type":"list"}
               // "change":{"text":"change","type":"button","direction":[pedal.number,pedal.param[i].number]}
             });
           }
@@ -57,29 +72,14 @@ class Pedal {
     callback(arr);
   }
 
-  getMidiPedals(callback) {
-    let arr = []
-    this.effects.map(pedal => {
-      if (pedal.online === 1 && pedal.midi === 1) {
-        arr.push({
-          "pedal":pedal.id,
-          "midiName":pedal.midiName,
-          "number":pedal.number
-        });
-      }
-    });
-    callback(arr);
-  }
   getOnlinePedals(callback) {
     let arr = [];
     this.effects.map(pedal => {
-      if (pedal.online === 1) {
-        arr.push({
-          "pedal":{"text":pedal.name,"type":"text"},
-          "online":{"text":pedal.type,"type":"text"},
-          "options":{"text":"info","type":"button","direction":[pedal.id,pedal.name]}
-        });  
-      }
+      arr.push({
+        "pedal":{"text":pedal.name,"type":"text"},
+        "online":{"text":pedal.type,"type":"text"},
+        "options":{"text":"info","type":"button","direction":[pedal.id,pedal.name]}
+      });  
     }) 
     callback(arr);
   }
@@ -116,12 +116,12 @@ class Pedal {
               returndata.midi = 2;
               returndata.param = [pdl.param[prm].msb,pdl.param[prm].lsb];
             }
-            else if (pdl.param[prm].autofill) {
-              returndata.param = pdl.param[prm].number;
-              returndata.value = pdl.param[prm].min;
-            }
             else {
               returndata.param = pdl.param[prm].number;
+            }
+            if (typeof pdl.param[prm].menuItems == "object") {
+              let val = (isNaN(Number(returndata.value)))?returndata.value.toLowerCase():returndata.value;
+              returndata.value = (pdl.param[prm].menuItems[val])?pdl.param[prm].menuItems[val]:val;
             }
             callback(returndata);
           }

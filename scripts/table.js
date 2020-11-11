@@ -27,6 +27,23 @@ const TableBody = props => {
         case "button":
           column.push(<td key={i}><button onClick={() => props.showOptions(row[i].direction)}>{row[i].text}</button></td>);
         break;
+        case "list":
+          if (row[i].text) {
+            let keys = Object.keys(row[i].text);
+            
+            const options = keys.map((rows,indexes) => {
+              console.log("rows:",rows);
+              let opt = [];
+              opt.push(<li key={indexes}>{rows}</li>)
+              return opt
+            })
+            
+            column.push(<td key={i}><ul>{options}</ul></td>);
+          }
+          else {
+            column.push(<td key={i}></td>);
+          }
+        break;
         default: 
         break;
       }

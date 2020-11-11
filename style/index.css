@@ -805,6 +805,7 @@ td {
 th,
 td {
   text-align: left;
+  vertical-align: top;
   padding: .5rem; }
 
 caption {
@@ -834,10 +835,10 @@ caption {
  div.options {
   position:absolute;
   background-color: #999999;
-  width:70%;
-  height:70%;
-  left:15%;
-  top:15%;
+  width:90%;
+  height:90%;
+  left:5%;
+  top:5%;
   z-index:2;
   border: 2px solid #555555;
   overflow: auto;
