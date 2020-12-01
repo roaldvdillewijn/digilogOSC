@@ -1,20 +1,59 @@
 {
   "name": "oscparser",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "author": "",
-  "license": "ISC",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "express": "4.17.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "codemirror": "5.58.2",
+    "cors": "2.8.5",
     "midi": "1.0.0",
-    "node-ipc": "9.1.1",
     "node-osc": "5.2.1",
-    "serialport": "8.0.5",
-    "socket.io": "2.3.0"
-  }
+    "react": "^17.0.1",
+    "react-codemirror2": "7.2.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "react-webcam": "5.2.1",
+    "serialport": "9.0.2",
+    "socket.io": "3.0.1",
+    "socket.io-client": "3.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node-env-run server --exec nodemon | pino-colada",
+    "dev": "run-p server start"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "express-pino-logger": "5.0.0",
+    "node-env-run": "4.0.2",
+    "nodemon": "2.0.6",
+    "npm-run-all": "4.1.5",
+    "pino-colada": "2.1.0"
+  },
+  "proxy": "http://192.168.2.1:3001"
 }

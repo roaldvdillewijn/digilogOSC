@@ -1,0 +1,15 @@
+{
+    "note":"builtin",
+    "time":"builtin",
+    "poly":"builtin",
+    "name":"builtin",
+    "ring":"builtin",
+    "new":"builtin",
+    "sine":"builtin",
+    "stretch":"builtin",
+    "dur":"builtin",
+    "channel":"builtin",
+    "set":"builtin",
+    "emitter":"operator",
+    "midi":"operator"
+}

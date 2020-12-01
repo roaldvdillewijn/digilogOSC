@@ -1,135 +1,70 @@
-# digilogOSC #
-control guitar pedals via OSC-messages
+# Getting Started with Create React App
 
-## install ##
-* clone or download
-* go to folder in terminal
-* npm install
-* npm start
-* go to localhost:8001 in the browser for the web-interface
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-at this moment this software is theoretical capable of converting OSC messages to serial message that control modified guitar pedals. 
+## Available Scripts
 
-The web interface show some information about the pedals and the possible OSC-messages and the ranges of their values. 
+In the project directory, you can run:
 
-The pedals shown are the current active pedals with a serial connection. I need to add the pedals with midi control. 
+### `yarn start`
 
-## add your own midi-enabled devices ##
-If you want to add some of your own devices you can add them to `pedals.json`:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```
-"particle": { //name of the pedal & first part of OSC-address
-    "number":1, // midi-channel
-    "name":"Particle", //Full name, used for the web interface
-    "id":"particle", 
-    "midiName":"Particle", //name of the midi-device, not necessarily same as pedal-name
-    "online":1, //needs to be 1 to pop-up in web interface and to be able to send messages to it
-    "type":"delay/pitch", //info for in the web-interface
-    "midi":1, //needs to be one if it's a midi-device. 
-    "param": { //add parameters here
-      "blend": { //name of the parameter, second part of OSC-address
-        "number":12, //cc-number
-        "value":0, // default value
-        "min":0, //minimum value
-        "max":127, //maximum value
-        "name":"Blend" //name for web-interface
-      },[....] //add more parameters here..
-```
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## functions ##
+### `yarn test`
 
-### normal control ###
-control the pedals with OSC-messages:  
-`/pedal/param <value>`  
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-for example:  
-`/canyon/delaytime 40`
+### `yarn build`
 
-#### pedal-specific functions ####
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-`/pedal/sample <time [slot]>`
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Record a sample for one of the following pedals:  
-Tensor, Volante, Looper (22500, slot: a || b), Canyon  
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-`/tensor/sample 5000`  
-`/looper/sample 5000 a`
+### `yarn eject`
 
-------
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-`/pedal/stopSample 1`
-stop the looping sample (both for 22500)
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### createSeq ###
-Function for creating sequencer values for the Ottobit jr. Generates random notes for the 6 sequencer steps:  
-`/ottobit/createSeq <scale [chance]>`  
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-The scale can be:  
+## Learn More
 
-* major  
-* minor
-* minor_harmonic  
-* minor_melodic  
-* dorian
-* phrygian
-* lydian
-* mixolydian
-* locrian
-* gypsy_spanish
-* gypsy
-* hexatonic
-* hexatonic_prometheus
-* hexatonic_blues
-* pentatonic_major
-* pentatonic_minor
-* chromatic
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-[chance] is optional and can be used to give the chance from 0-100 to choose a note. If no note is chosen the step will be skipped or muted (50/50 chance on oen of these two). Default is 70.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### fade ###
-Go from the first value to the second in x amount of time:  
-`/pedalname/fade param start stop time`  
+### Code Splitting
 
-for example:  
-`/canyon/fade delaytime 0 255 5000` -> go from 0 to 255 in 5000ms
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### oscillate ###
-Set an LFO on the value from on value to another in x amount of time per cycle:  
-`/pedalname/oscillate param start stop time`  
+### Analyzing the Bundle Size
 
-for example:  
-`/canyon/oscillate delaytime 0 255 5000` -> go from 0 to 255 and back to 0 in 5000ms  
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-#### stop ####
-stop the oscillation, use [optional] up or down to end the oscillation at the lowest or highest given point:  
-`/pedal/stop param [up down]`  
+### Making a Progressive Web App
 
-for example:   
-`/canyon/stop delaytime up`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### famous last words ###
+### Advanced Configuration
 
-#### change ####
-ignore incoming OSC data on that pedal/parameter-combination until value changes:  
-`/pedal/param 40 change`  
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-for example:  
-`/canyon/delaytime 40 change` -> message is processed  
-`/canyon/delaytime 40 change` -> message is ignored  
-`/canyon/delaytime 41 change` -> message is processed  
-`/canyon/delaytime 41 change` -> message is ignored
+### Deployment
 
-#### once ####
-(only for oscillate & fade messages)  
-Oscillate messages are looped until the stop message is received. 
-Fade messages are processed only once, until fade is done.  
-`/pedal/oscillate param start stop time loop` 
- 
-for example:  
-`/canyon/oscillate delaytime 0 255 5000 loop` -> message is processed  
-`/canyon/oscillate delaytime 0 255 5000 loop` -> message is ignored  
-`/canyon/oscillate delaytime 0 255 5000 loop` -> message is ignored  
-`/canyon/stop delaytime` -> message is processed once (because it's a stop message)  
-`/canyon/oscillate delaytime 0 255 500 loop` -> message is processed  
-`/canyon/oscillate delaytime 0 255 500 loop` -> message is ignored (etc.)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

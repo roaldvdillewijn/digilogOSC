@@ -1,0 +1,17 @@
+ring delt sine(16 1 0 12)
+ring noten sine(16 3.2 0 12)
+ring pt1 [^3 ^5 ^7 ^12]
+ring pt2 [^2 ^3 ^4 ^9]
+ring pt3 [v3 v5 v7 v12]
+ring loopstate [record loop]
+new emitter osc name(context)
+set context deltime(delt) time(1)
+new midi "Volante" note(noten 1) time(1) dur(500) out(16)
+new emitter osc name(hedra)
+set hedra pitch1(pt1) time(1)
+set hedra pitch2(pt2) time(1)
+set hedra pitch3(pt3) time(1)
+set hedra tempo(127 change) time(1)
+new emitter osc name(tensor)
+set tensor looper(loopstate) time(1)
+killAll
