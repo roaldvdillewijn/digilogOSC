@@ -1,21 +1,20 @@
 # digilogOSC #
-control guitar pedals via OSC-messages
+* Control guitar pedals via OSC-messages
+* Code editor for the [Mercury](https://github.com/tmhglnd/mercury) live-codig environment by Timo Hoogland 
 
 ## install ##
-* clone or download
-* go to folder in terminal
-* npm install
-* npm start
-* go to localhost:8001 in the browser for the web-interface
+* Clone or download
+* Go to folder in terminal
+* `npm install`
+* `npm run dev` (for now)
+* Go to __localhost:3000__ in the browser for the web-interface
 
-at this moment this software is theoretical capable of converting OSC messages to serial message that control modified guitar pedals. 
+At this moment this software is capable of converting OSC messages to serial message that control modified guitar pedals. 
 
-The web interface show some information about the pedals and the possible OSC-messages and the ranges of their values. 
-
-The pedals shown are the current active pedals with a serial connection.
+The webinterface is a code editor for the Mercury live-coding environment. It has syntax highlighting for the Mercury Language and it has automatich helper-files for the Digilog-part of it.
 
 ## add your own midi-enabled devices ##
-If you want to add some of your own devices you can add them to `pedals.json`:
+If you want to add some of your own devices you can add them to `server/assets/pedals.json`:
 
 ```
 "particle": { //name of the pedal & first part of OSC-address
@@ -94,10 +93,10 @@ for example:
 
 ### oscillate ###
 Set an LFO on the value from on value to another in x amount of time per cycle:  
-`/pedalname/oscillate param start stop time`  
+`/pedalname/param oscillate start stop time`  
 
 for example:  
-`/canyon/oscillate delaytime 0 255 5000` -> go from 0 to 255 and back to 0 in 5000ms  
+`/canyon/delaytime/oscillate 0 255 5000` -> go from 0 to 255 and back to 0 in 5000ms  
 
 #### stop ####
 stop the oscillation, use [optional] up or down to end the oscillation at the lowest or highest given point:  
@@ -125,9 +124,9 @@ Fade messages are processed only once, until fade is done.
 `/pedal/oscillate param start stop time loop` 
  
 for example:  
-`/canyon/oscillate delaytime 0 255 5000 loop` -> message is processed  
-`/canyon/oscillate delaytime 0 255 5000 loop` -> message is ignored  
-`/canyon/oscillate delaytime 0 255 5000 loop` -> message is ignored  
-`/canyon/stop delaytime` -> message is processed once (because it's a stop message)  
-`/canyon/oscillate delaytime 0 255 500 loop` -> message is processed  
-`/canyon/oscillate delaytime 0 255 500 loop` -> message is ignored (etc.)
+`/canyon/delaytime oscillate 0 255 5000 loop` -> message is processed  
+`/canyon/delaytime oscillate 0 255 5000 loop` -> message is ignored  
+`/canyon/delaytime oscillate 0 255 5000 loop` -> message is ignored  
+`/canyon/delaytime stop` -> message is processed once (because it's a stop message)  
+`/canyon/delaytime oscillate 0 255 500 loop` -> message is processed  
+`/canyon/delaytime oscillate 0 255 500 loop` -> message is ignored (etc.)
