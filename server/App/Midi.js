@@ -13,7 +13,8 @@ class Midi {
   connect(callback) {
     let outputs = this.port.getPortCount();
     for (let i=0;i<outputs;i++) {
-      if (this.portName == this.port.getPortName(i)) {
+      let simplePort = this.port.getPortName(i).split(" ")[0];
+      if (this.portName === simplePort) {
         this.portNumber = i;
       }
     }
