@@ -2,8 +2,8 @@ const midi = require('midi');
 
 class Midi {
   constructor(data) {
-    this.portName = data.midiName;
-    this.channel = data.number
+    this.portName = data.midiName || null;
+    this.channel = data.number || null;
     this.inout = 'out';
     this.port = new midi.output();
     this.portNumber = -1;
@@ -14,9 +14,7 @@ class Midi {
     let outputs = this.port.getPortCount();
     for (let i=0;i<outputs;i++) {
       let simplePort = this.port.getPortName(i).split(" ")[0].split(":")[0];
-      console.log(this.portName,simplePort);
       if (this.portName === simplePort) {
-        // console.log(this.portName,simplePort);
         this.portNumber = i;
       }
     }
@@ -50,6 +48,16 @@ class Midi {
       this.port.sendMessage(midiMessagelsb);
       Server.send({address:"serialData",value:[midiMessagemsb,midiMessagelsb]});
     }
+  }
+  thru(msg) {
+    this.port.sendMessage(msg);
+  }
+  virtual(callback) {
+    this.port = new midi.input();
+    this.port.openVirtualPort("midibridge");
+    this.port.on('message',(deltaTime,message) => {
+      callback(message);
+    })
   }
 }
 

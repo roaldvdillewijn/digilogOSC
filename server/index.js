@@ -7,6 +7,7 @@ const Files = require('./App/Files').Files;
 const Midi = require('./App/Midi').Midi;
 const ExtraPedalFunctions = require('./App/ExtraPedalFunctions').ExtraPedalFunctions;
 const midiList = {};
+let virtualMidi;
 
 Server.start();
 Server.socket(() => {
@@ -62,10 +63,13 @@ Pedal.getPedals(res => {
       //something with receiving midi-data;
     });  
   });
+  virtualMidi = new Midi({midiName:null,number:null});
+  virtualMidi.virtual(data => {
+    midiList["volante"].thru(data)
+  });
 });
 
 Osc.handleData((msg,raw) => {
-  // console.log(msg,raw);
   if (msg == "/checkPedals") {
     Serial.checkPedals();
   }
