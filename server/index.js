@@ -56,7 +56,7 @@ Serial.connect();
 
 Osc.createServer();
 Osc.createClient('127.0.0.1',9001);
-OscPedal.createClient('127.0.0.1',9765);
+OscPedal.createClient('169.254.143.3',9765);
 
 Pedal.getPedals(res => {
   res.map((result,index) => {
