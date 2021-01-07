@@ -72,6 +72,7 @@ Pedal.getPedals(res => {
 });
 
 Osc.handleData((msg,raw) => {
+  console.log(msg);
   if (msg == "/checkPedals") {
     Serial.checkPedals();
   }

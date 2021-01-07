@@ -1861,13 +1861,13 @@
         "value":0,
         "name":"Reverb Mix"
       },
-      "cutoff": {
+      "filtcutoff": {
         "number":43,
         "type":"range",
         "value":0,
         "name":"Cutoff"
       },
-      "resonance": {
+      "filtresonance": {
         "number":44,
         "type":"range",
         "value":0,
