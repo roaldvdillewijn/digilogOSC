@@ -176,7 +176,7 @@ class Pedal {
               }
               if (typeof pdl.param[prm].menuItems == "object") {
                 let val = (isNaN(Number(returndata.value)))?returndata.value.toLowerCase():returndata.value;
-                returndata.value = (pdl.param[prm].menuItems[val])?pdl.param[prm].menuItems[val]:val;
+                returndata.value = (pdl.param[prm].menuItems[val]>=0)?pdl.param[prm].menuItems[val]:val;
               }
               callback(returndata);
             }

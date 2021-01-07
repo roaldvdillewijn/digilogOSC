@@ -14,7 +14,6 @@ class Osc {
   handleData(callback) {
     if (this.server) {
       this.server.on("message",(msg,rinfo) => {
-        
         let val = [...msg];
         val.shift();
         if (msg[0] == "/checkPedals")callback("/checkPedals");
@@ -88,8 +87,8 @@ class Osc {
   getState() {
     console.log(this.state);
   }
-  createClient() {
-    this.client = new osc.Client('127.0.0.1',9001);
+  createClient(address,port) {
+    this.client = new osc.Client(address,port);
   }
   send(data) {
     if (this.client) {
@@ -101,5 +100,6 @@ class Osc {
 }
 
 module.exports = {
-  Osc: new Osc()
+  Osc: new Osc(),
+  OscPedal: new Osc()
 }

@@ -99,7 +99,7 @@
     "number":19,
     "name":"Canyon",
     "id":"canyon",
-    "online":0,
+    "online":1,
     "type":"Delay",
     "param": {
       "fxlevel":{
@@ -139,7 +139,7 @@
         "type":"select",
         "value":0,
         "menuItems":{"on":1,"off":0},
-        "name":"Effect Stte"
+        "name":"Effect State"
       },
       "secondary":{
         "number":7,
@@ -171,7 +171,7 @@
     "name":"Tri-Parallel Mixer",
     "id":"mixer",
     "type":"other",
-    "online":0,
+    "online":1,
     "param": {
       "channel1": {
         "number":1,
@@ -386,7 +386,7 @@
     "name":"SuperEgo",
     "id":"superego",
     "type":"Synthesis",
-    "online":0,
+    "online":1,
     "param": {
       "speed":{
         "number":1,
@@ -772,7 +772,7 @@
     "name":"Ring Thing",
     "id":"ringthing",
     "type":"Ring Modulation",
-    "online":0,
+    "online":1,
     "modern":1,
     "param":{
       "blend":{

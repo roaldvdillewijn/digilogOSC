@@ -1,5 +1,6 @@
 
 const Osc = require('./App/Osc').Osc;
+const OscPedal = require('./App/Osc').OscPedal;
 const Serial = require('./App/Serial').Serial;
 const Pedal = require('./App/Pedal').Pedal;
 const Server = require('./App/Server').Server;
@@ -54,7 +55,8 @@ Server.socket(() => {
 Serial.connect();
 
 Osc.createServer();
-Osc.createClient();
+Osc.createClient('127.0.0.1',9001);
+OscPedal.createClient('127.0.0.1',9765);
 
 Pedal.getPedals(res => {
   res.map((result,index) => {
@@ -104,7 +106,11 @@ function sendPedalData(data) {
       midiList[data.id].write(data,Server);
     }
     else {
-      Serial.write(data,Server);
+      // Serial.write(data,Server);
+      let value = Array.isArray(data.value)?data.value[0]:data.value;
+      let oscMessage = [data.pedal,data.param,value];
+      OscPedal.send({address:"/data",message:oscMessage});
+      //hier moet dan iets komen dat het via OSC-verzonden wordt naar de digilog-osc-dinges
     }
   }
 }
