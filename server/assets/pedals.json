@@ -1223,73 +1223,8 @@
       }
     }
   },
-  "analogdrive": {
-    "number":2,
-    "name":"Analog Drive",
-    "id":"analogdrive",
-    "midiName":"Volante",
-    "online":0,
-    "type":"Distortion",
-    "midi":1,
-    "msblsb":1,
-    "param":{
-      "gain":{
-        "msblsb":1,
-        "type":"range",
-        "msb":16,
-        "lsb":48,
-        "value":0,
-        "name":"Gain"
-      },
-      "low":{
-        "msblsb":1,
-        "type":"range",
-        "msb":17,
-        "lsb":49,
-        "value":0,
-        "name":"Low"
-      },
-      "midfreq":{
-        "msblsb":1,
-        "type":"range",
-        "msb":18,
-        "lsb":50,
-        "value":0,
-        "name":"Mid Freq"
-      },
-      "mid":{
-        "msblsb":1,
-        "type":"range",
-        "msb":19,
-        "lsb":51,
-        "value":0,
-        "name":"Mid"
-      },
-      "high": {
-        "msblsb":1,
-        "type":"range",
-        "msb":20,
-        "lsb":52,
-        "value":0,
-        "name":"High"
-      },
-      "circuit":{
-        "number":3,
-        "type":"range",
-        "value":0,
-        "name":"Circuit (16/step)"
-      },
-      "state":{
-        "number":80,
-        "type":"select",
-        "value":0,
-        "menuItems":{"on":127,"off":0},
-        "name":"Effect State"
-      }
-    }
-  },
   "particle": {
-    "number":1,
+    "number":2,
     "name":"Particle",
     "id":"particle",
     "midiName":"Particle",
@@ -1516,8 +1451,551 @@
       }
     }
   },
-  "tensor": {
+  "raster": {
+    "number":9,
+    "name":"Raster",
+    "id":"raster",
+    "midiName":"Raster",
+    "online":1,
+    "type":"delay/pitch",
+    "midi":1,
+    "param":{
+      "blend" :{
+        "number":14,
+        "type":"range",
+        "value":0,
+        "name":"Blend"
+      },
+      "blendlr" :{
+        "number":15,
+        "type":"range",
+        "value":0,
+        "name":"Blend L/R"
+      },
+      "shift" :{
+        "number":16,
+        "type":"range",
+        "value":0,
+        "name":"Shift"
+      },
+      "shiftlr" :{
+        "number":17,
+        "type":"range",
+        "value":0,
+        "name":"Shift L/R"
+      },
+      "delaytime" :{
+        "number":18,
+        "type":"range",
+        "value":0,
+        "name":"Delay Time"
+      },
+      "delaytimelr" :{
+        "number":19,
+        "type":"range",
+        "value":0,
+        "name":"Delay Time L/R"
+      },
+      "feedback" :{
+        "number":20,
+        "type":"range",
+        "value":0,
+        "name":"Feedback"
+      },
+      "feedbacklr" :{
+        "number":21,
+        "type":"range",
+        "value":0,
+        "name":"Feedback L/R"
+      },
+      "rate" :{
+        "number":22,
+        "type":"range",
+        "value":0,
+        "name":"Modulation Rate"
+      },
+      "ratelr" :{
+        "number":23,
+        "type":"range",
+        "value":0,
+        "name":"Modulation Rate L/R"
+      },
+      "depth" :{
+        "number":24,
+        "type":"range",
+        "value":0,
+        "name":"Modulation Depth"
+      },
+      "depthlr" :{
+        "number":25,
+        "type":"range",
+        "value":0,
+        "name":"Modulation Depth L/R"
+      },
+      "tone" :{
+        "number":26,
+        "type":"range",
+        "value":0,
+        "name":"Tone"
+      },
+      "state" :{
+        "number":88,
+        "type":"select",
+        "menuItems":{"on":127,"off":0},
+        "value":0,
+        "name":"Effect State"
+      },
+      "shiftstate" :{
+        "number":90,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":127,"off":0},
+        "name":"Shift State"
+      },
+      "waveform" :{
+        "number":102,
+        "type":"select",
+        "value":0,
+        "menuItems":{"sine":0,"triangle":1,"rampup":2,"rampdown":3,"square":4,"randomstep":5,"randomsmooth":6,"envelope":7,"invenvelope":8},
+        "name":"Modulation Waveform"
+      },
+      "destination" :{
+        "number":103,
+        "type":"select",
+        "menuItems":{"amplitude":0,"shift":1,"delaytime":3},
+        "value":0,
+        "name":"Waveform Destination"
+      },
+      "shiftmode" :{
+        "number":104,
+        "type":"select",
+        "value":0,
+        "menuItems":{"transpose":0,"detune":1,"freqshift":2},
+        "name":"Shift Mode"
+      },
+      "delaystructure" :{
+        "number":105,
+        "type":"select",
+        "menuItems":{"parallel":0,"pingpong":1,"series":2},
+        "value":0,
+        "name":"Delay Structure"
+      },
+      "feedbackmode" :{
+        "number":106,
+        "type":"select",
+        "menuItems":{"forward":0,"forwardonce":1,"reverse":2,"reverseonce":3},
+        "value":0,
+        "name":"Feedback Mode"
+      },
+      "delayrange" :{
+        "number":107,
+        "type":"select",
+        "menuItems":{"400":0,"800":1,"1600":2,"3200":3},
+        "value":0,
+        "name":"Delay Range"
+      }
+    }
+  },
+  "habit": {
+    "number":10,
+    "name":"Habit",
+    "id":"habit",
+    "midiName":"Volante",
+    "online":1,
+    "type":"delay",
+    "midi":1,
+    "param": {
+      "volume": {
+        "number":14,
+        "type":"range",
+        "value":0,
+        "name":"Volume"
+      },
+      "repeats": {
+        "number":15,
+        "type":"range",
+        "value":0,
+        "name":"Repeats"
+      },
+      "size": {
+        "number":16,
+        "type":"range",
+        "value":0,
+        "name":"Size"
+      },
+      "modify": {
+        "number":17,
+        "type":"range",
+        "value":0,
+        "name":"Modify"
+      },
+      "spread": {
+        "number":18,
+        "type":"range",
+        "value":0,
+        "name":"Spread"
+      },
+      "scan": {
+        "number":19,
+        "type":"range",
+        "value":0,
+        "name":"Scan"
+      },
+      "ramp": {
+        "number":20,
+        "type":"range",
+        "value":0,
+        "name":"Ramp"
+      },
+      "modifiernr": {
+        "number":21,
+        "type":"select",
+        "menuItems":{"one":1,"two":2,"three":3},
+        "value":0,
+        "name":"Modifier number"
+      },
+      "modifierbank": {
+        "number":22,
+        "type":"select",
+        "menuItems":{"a":1,"off":2,"b":3},
+        "value":0,
+        "name":"Modifier bank"
+      },
+      "mode": {
+        "number":23,
+        "type":"select",
+        "menuItems":{"in":1,"out":2,"feed":3},
+        "value":0,
+        "name":"Modifier number"
+      },
+      "state": {
+        "number":102,
+        "type":"select",
+        "menuItems":{"off":0,"on":2},
+        "value":0,
+        "name":"State"
+      },
+      "loophold": {
+        "number":24,
+        "type":"select",
+        "menuItems":{"off":0,"on":2},
+        "value":0,
+        "name":"Loop Hold"
+      },
+      "scanhold": {
+        "number":25,
+        "type":"select",
+        "menuItems":{"off":0,"on":2},
+        "value":0,
+        "name":"Scan Hold"
+      },
+      "clear": {
+        "number":26,
+        "type":"select",
+        "menuItems":{"do":0},
+        "value":0,
+        "name":"Modifier number"
+      }
+    }
+  },
+  "nightsky": {
     "number":1,
+    "name":"NightSky",
+    "id":"nightsky",
+    "midiName":"NightSky",
+    "online":1,
+    "type":"reverb",
+    "midi":1,
+    "param" :{
+      "wet": {
+        "number":11,
+        "type":"range",
+        "value":0,
+        "name":"Reverb Level"
+      },
+      "dry": {
+        "number":12,
+        "type":"range",
+        "value":0,
+        "name":"Dry Level"
+      },
+      "modspeed": {
+        "number":13,
+        "type":"range",
+        "value":0,
+        "name":"Mod Speed"
+      },
+      "modtarget": {
+        "number":14,
+        "type":"select",
+        "value":0,
+        "menuItems":{"verb":0,"pitch":1,"filter":2},
+        "name":"Mod Target"
+      },
+      "moddepth": {
+        "number":15,
+        "type":"range",
+        "value":0,
+        "name":"Mod Depth"
+      },
+      "modshape": {
+        "number":16,
+        "type":"select",
+        "value":0,
+        "menuItems":{"triangle":0,"square":1,"ramp":2,"saw":3,"random":4,"envelope":5},
+        "name":"Mod Shape"
+      },
+      "predelay": {
+        "number":17,
+        "type":"range",
+        "value":0,
+        "name":"Pre-Delay"
+      },
+      "length": {
+        "number":18,
+        "type":"range",
+        "value":0,
+        "name":"Length"
+      },
+      "texture": {
+        "number":19,
+        "type":"select",
+        "value":0,
+        "menuItems":{"sparse":0,"dense":1,"diffuse":2},
+        "name":"Texture"
+      },
+      "size": {
+        "number":20,
+        "type":"range",
+        "value":0,
+        "name":"SizePitch"
+      },
+      "quantize": {
+        "number":21,
+        "type":"select",
+        "value":0,
+        "menuItems":{"smooth":0,"halfstep":1,"scale":2},
+        "name":"Quantize"
+      },
+      "lowcut": {
+        "number":22,
+        "type":"range",
+        "value":0,
+        "name":"Low Cut"
+      },
+      "highcut": {
+        "number":23,
+        "type":"range",
+        "value":0,
+        "name":"High Cut"
+      },
+      "filter": {
+        "number":24,
+        "type":"select",
+        "value":0,
+        "menuItems":{"regen":0,"lowpass":1},
+        "name":"Filter"
+      },
+      "lowpassq": {
+        "number":25,
+        "type":"range",
+        "value":0,
+        "name":"Lowpass Q"
+      },
+      "interval": {
+        "number":26,
+        "type":"select",
+        "value":0,
+        "menuItems":{"octave":0,"-major7h":1,"-minor7th":2,"-major6th":3,"-minor6th":4,"-perfecht5th":5,"-tritone":6,"-perfect4th":7,"-major3rd":8,"-minor3rd":9,"-major2nd":10,"-minor2nd":11,"-detune":12,"+detune":13,"+minor2nd":14,"+major2nd":15,"+minor3rd":16,"+major3rd":17,"+perfect4th":18,"+tritone":19,"+perfecht5th":20,"+minor6th":21,"+major6th":22,"+minor7th":23,"+major7h":24,"+octave":25},
+        "name":"Interval"
+      },
+      "scale": {
+        "number":27,
+        "type":"select",
+        "value":0,
+        "menuItems":{"minor_pentatonic":0,"major_pentatonic":1,"major":2, "dorian":3,"minor_blues":4,"harmonic_minor":5,"whole_tone":6,"diminished":7},
+        "name":"Scale"
+      },
+      "shimmer": {
+        "number":28,
+        "type":"select",
+        "value":0,
+        "menuItems":{"input":0,"regen":0},
+        "name":"Shimmer"
+      },
+      "shimmerlevel": {
+        "number":29,
+        "type":"range",
+        "value":0,
+        "name":"Shimmer Level"
+      },
+      "glimmer": {
+        "number":30,
+        "type":"select",
+        "value":0,
+        "menuItems":{"off":0,"high":1,"low":2},
+        "name":"Glimmer"
+      },
+      "glimmergain": {
+        "number":31,
+        "type":"range",
+        "value":0,
+        "name":"Glimmer Gain"
+      },
+      "drive": {
+        "number":33,
+        "type":"select",
+        "value":0,
+        "menuItems":{"off":0,"pre":1,"post":2},
+        "name":"Drive"
+      },
+      "drivelevel": {
+        "number":34,
+        "type":"range",
+        "value":0,
+        "name":"Drive Level"
+      },
+      "freeze": {
+        "number":35,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Freeze"
+      },
+      "Morph": {
+        "number":36,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Morph"
+      },
+      "morphspeed": {
+        "number":37,
+        "type":"range",
+        "value":0,
+        "name":"Morph Speed"
+      },
+      "seqstep1state": {
+        "number":42,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Sequencer Step 1 on/off"
+      },
+      "seqstep2state": {
+        "number":43,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Sequencer Step 2 on/off"
+      },
+      "seqstep3state": {
+        "number":44,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Sequencer Step 3 on/off"
+      },
+      "seqstep4state": {
+        "number":45,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Sequencer Step 4 on/off"
+      },
+      "seqstep5state": {
+        "number":46,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Sequencer Step 5 on/off"
+      },
+      "seqstep6state": {
+        "number":47,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Sequencer Step 6 on/off"
+      },
+      "seqstep7state": {
+        "number":48,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Sequencer Step 7 on/off"
+      },
+      "seqstep8state": {
+        "number":49,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":1,"off":0},
+        "name":"Sequencer Step 8 on/off"
+      },
+      "seqstep1size": {
+        "number":50,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Step 1 Size"
+      },
+      "seqstep2size": {
+        "number":51,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Step 2 Size"
+      },
+      "seqstep3size": {
+        "number":52,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Step 3 Size"
+      },
+      "seqstep4size": {
+        "number":53,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Step 4 Size"
+      },
+      "seqstep5size": {
+        "number":54,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Step 5 Size"
+      },
+      "seqstep6size": {
+        "number":55,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Step 6 Size"
+      },
+      "seqstep7size": {
+        "number":56,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Step 7 Size"
+      },
+      "seqstep8size": {
+        "number":57,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Step 8 Size"
+      },
+      "seqglide": {
+        "number":58,
+        "type":"range",
+        "value":0,
+        "name":"Sequencer Glide"
+      },
+      "state": {
+        "number":102,
+        "type":"select",
+        "menuItems":{"on":1,"off":0},
+        "value":0,
+        "name":"State"
+      }
+    }
+  },
+  "tensor": {
+    "number":3,
     "name":"Tensor",
     "id":"tensor",
     "midiName":"Tensor",
@@ -1966,42 +2444,42 @@
         "menuItems":{"1x":0,"2x":19,"4x":38,"8x":57,"16x":76,"32x":95,"64x":114,"128x":127},
         "name":"Sequencer Mult"
       },
-      "stepone": {
+      "step1": {
         "number":22,
         "type":"select",
         "value":0,
         "menuItems":{"skip":0,"v12":1,"v11":14,"v10":18,"v9":22,"v8":26,"v7":30,"v6":34,"v5":38,"v4":42,"v3":46,"v2":50,"v1":54,"^0":58,"^1":75,"^2":79,"^3":83,"^4":87,"^5":91,"^6":95,"^7":99,"^8":103,"^9":107,"^10":111,"^11":115,"^12":119,"mute":127},
         "name":"Step 1"
       },
-      "steptwo": {
+      "step2": {
         "number":23,
         "type":"select",
         "value":0,
         "menuItems":{"skip":0,"v12":1,"v11":14,"v10":18,"v9":22,"v8":26,"v7":30,"v6":34,"v5":38,"v4":42,"v3":46,"v2":50,"v1":54,"^0":58,"^1":75,"^2":79,"^3":83,"^4":87,"^5":91,"^6":95,"^7":99,"^8":103,"^9":107,"^10":111,"^11":115,"^12":119,"mute":127},
         "name":"Step 2"
       },
-      "stepthree": {
+      "step3": {
         "number":24,
         "type":"select",
         "value":0,
         "menuItems":{"skip":0,"v12":1,"v11":14,"v10":18,"v9":22,"v8":26,"v7":30,"v6":34,"v5":38,"v4":42,"v3":46,"v2":50,"v1":54,"^0":58,"^1":75,"^2":79,"^3":83,"^4":87,"^5":91,"^6":95,"^7":99,"^8":103,"^9":107,"^10":111,"^11":115,"^12":119,"mute":127},
         "name":"Step 3"
       },
-      "stepfour": {
+      "step4": {
         "number":25,
         "type":"select",
         "value":0,
         "menuItems":{"skip":0,"v12":1,"v11":14,"v10":18,"v9":22,"v8":26,"v7":30,"v6":34,"v5":38,"v4":42,"v3":46,"v2":50,"v1":54,"^0":58,"^1":75,"^2":79,"^3":83,"^4":87,"^5":91,"^6":95,"^7":99,"^8":103,"^9":107,"^10":111,"^11":115,"^12":119,"mute":127},
         "name":"Step 4"
       },
-      "stepfive": {
+      "step5": {
         "number":26,
         "type":"select",
         "value":0,
         "menuItems":{"skip":0,"v12":1,"v11":14,"v10":18,"v9":22,"v8":26,"v7":30,"v6":34,"v5":38,"v4":42,"v3":46,"v2":50,"v1":54,"^0":58,"^1":75,"^2":79,"^3":83,"^4":87,"^5":91,"^6":95,"^7":99,"^8":103,"^9":107,"^10":111,"^11":115,"^12":119,"mute":127},
         "name":"Step 5"
       },
-      "stepsix": {
+      "step6": {
         "number":27,
         "type":"select",
         "value":0,
@@ -2232,11 +2710,24 @@
         "menuItems":{"on":127,"off":0},
         "name":"Hold (w/o osc)"
       },
+      "sosrepeat": {
+        "number":47,
+        "type":"range",
+        "value":0,
+        "name":"SOS-repeat-level"
+      },
       "soslevel":{
         "number":48,
         "type":"range",
         "value":0,
         "name":"SOS-level"
+      },
+      "sosrec": {
+        "number":49,
+        "type":"select",
+        "value":0,
+        "menuItems":{"switch":127},
+        "name":"SOS-Rec/Splice/Clear"
       },
       "tap": {
         "number":82,
