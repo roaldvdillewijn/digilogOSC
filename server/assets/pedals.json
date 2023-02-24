@@ -1310,9 +1310,28 @@
         "value":0,
         "name":"Feedback LPF"
       },
+      "feedbackmode": {
+        "number":29,
+        "type":"select",
+        "value":0,
+        "menuItems":{"recycle":0,"recyclepingpong":1,"postdelay":2,"postdelaypingpong":3,"grainrepeat":4,"grainrepeat50":5,"grainrepeat37":6,"grainrepeat25":7,"grainrepeat:12":8,"grainrepeatperc":9,"auto":10},
+        "name":"Feedback Mode"
+      },
+      "grainpan": {
+        "number":32,
+        "type":"range",
+        "value":0,
+        "name":"Grain Pan"
+      },
+      "grainspread": {
+        "number":33,
+        "type":"range",
+        "value":0,
+        "name":"Grain Stereo Spread"
+      },
       "freeze": {
         "number":80,
-        "type":"checkbox",
+        "type":"select",
         "value":0,
         "menuItems":{"on":127,"off":0},
         "name":"Freeze"
@@ -1331,12 +1350,26 @@
         "value":0,
         "name":"Mode"
       },
+      "pitchquant":{
+        "number":117,
+        "type":"select",
+        "value":0,
+        "menuItems":{"free":0,"semitones":1,"octaveup":2,"octavedown":3,"5thsoctaves":4,"intervals":5,"intervalsinversions":6},
+        "name":"Pitch Quantization Mode"
+      },
       "freezemode": {
         "number":118,
         "type":"select",
         "value":0,
         "menuItems":{"grain":0,"delay":127},
         "name":"Freeze Mode"        
+      },
+      "expertmode": {
+        "number":119,
+        "type":"select",
+        "value":0,
+        "menuItems":{"on":127,"off":0},
+        "name":"Expert Mode"
       }
     }
   },
@@ -1596,11 +1629,261 @@
       }
     }
   },
-  "habit": {
+  "generation": {
     "number":10,
+    "name":"Generation Loss",
+    "id":"generation",
+    "midiName":"NightSky",
+    "online":1,
+    "type":"modulation",
+    "midi":1,
+    "param": {
+      "wow": {
+        "number":14,
+        "type":"range",
+        "value":0,
+        "name":"Wow"
+      },
+      "volume": {
+        "number":15,
+        "type":"range",
+        "value":0,
+        "name":"Volume"
+      },
+      "model": {
+        "number":16,
+        "type":"select",
+        "menuItems":{"off":0,"model1":15,"model2":24,"model3":33,"model4":43,"model5":53,"model6":62,"model7":72,"model8":82,"model9":91,"model10":101,"model11":111,"model12":127},
+        "value":0,
+        "name":"Model"
+      },
+      "flutter": {
+        "number":17,
+        "type":"range",
+        "value":0,
+        "name":"Flutter"
+      },
+      "saturate": {
+        "number":18,
+        "type":"range",
+        "value":0,
+        "name":"Saturate"
+      },
+      "failure": {
+        "number":19,
+        "type":"range",
+        "value":0,
+        "name":""
+      },
+      "rampspeed": {
+        "number":20,
+        "type":"range",
+        "value":0,
+        "name":"Ramp Speed"
+      },
+      "auxonset": {
+        "number":24,
+        "type":"range",
+        "value":0,
+        "name":"Aux Onset"
+      },
+      "hisslevel": {
+        "number":27,
+        "type":"range",
+        "value":0,
+        "name":"Hiss Level"
+      },
+      "noiselevel": {
+        "number":28,
+        "type":"range",
+        "value":0,
+        "name":"Mechanical Noise Level"
+      },
+      "crinklelevel": {
+        "number":29,
+        "type":"range",
+        "value":0,
+        "name":"Crinkle and Pop Level"
+      },
+      "lp": {
+        "number":16,
+        "type":"range",
+        "value":0,
+        "name":"LP"
+      },
+      "gen": {
+        "number":18,
+        "type":"range",
+        "value":0,
+        "name":"Gen"
+      },
+      "hp": {
+        "number":19,
+        "type":"range",
+        "value":0,
+        "name":"HP"
+      },
+      "auxmode": {
+        "number":21,
+        "type":"select",
+        "menuItems":{"stop":1,"filter":2,"fail":3},
+        "value":0,
+        "name":"Aux Mode"
+      },
+      "dry": {
+        "number":22,
+        "type":"select",
+        "menuItems":{"none":1,"small":2,"unity":3},
+        "value":0,
+        "name":"Dry"
+      },
+      "noise": {
+        "number":23,
+        "type":"select",
+        "menuItems":{"none":1,"mild":2,"heavy":3},
+        "value":0,
+        "name":"Noise"
+      },
+      "state": {
+        "number":102,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"State"
+      },
+      "aux": {
+        "number":103,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Aux"
+      },
+      "wowdip": {
+        "number":61,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Wow Dip"
+      },
+      "flutterdip": {
+        "number":62,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Flutter Dip"
+      },
+      "satdip": {
+        "number":63,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Saturate Dip"
+      },
+      "failuredip": {
+        "number":64,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Saturate Dip"
+      },
+      "modeldip": {
+        "number":65,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Model Dip"
+      },
+      "bounce": {
+        "number":66,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Bounce"
+      },
+      "random": {
+        "number":67,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Random"
+      },
+      "ramp": {
+        "number":52,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Ramp"
+      },
+      "sweep": {
+        "number":68,
+        "type":"select",
+        "menuItems":{"B":0,"T":1},
+        "value":0,
+        "name":"Sweep"
+      },
+      "polarity": {
+        "number":71,
+        "type":"select",
+        "menuItems":{"F":0,"R":1},
+        "value":0,
+        "name":"Polarity"
+      },
+      "classic": {
+        "number":72,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Classic"
+      },
+      "miso": {
+        "number":73,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Miso"
+      },
+      "spread": {
+        "number":74,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Spread"
+      },
+      "drytype": {
+        "number":75,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Dry Type"
+      },
+      "dropbypass": {
+        "number":76,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Drop Bypass"
+      },
+      "snagbypass": {
+        "number":77,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Snag Bypass"
+      },
+      "humbypass": {
+        "number":78,
+        "type":"select",
+        "menuItems":{"off":0,"on":1},
+        "value":0,
+        "name":"Hum Bypass"
+      }
+    }
+  },
+  "habit": {
+    "number":11,
     "name":"Habit",
     "id":"habit",
-    "midiName":"Volante",
+    "midiName":"NightSky",
     "online":1,
     "type":"delay",
     "midi":1,
@@ -1675,14 +1958,14 @@
         "value":0,
         "name":"State"
       },
-      "loophold": {
+      "loop": {
         "number":24,
         "type":"select",
         "menuItems":{"off":0,"on":2},
         "value":0,
         "name":"Loop Hold"
       },
-      "scanhold": {
+      "scan": {
         "number":25,
         "type":"select",
         "menuItems":{"off":0,"on":2},
@@ -2062,7 +2345,7 @@
     "number":5,
     "name":"Hedra",
     "id":"hedra",
-    "midiName":"Volante",
+    "midiName":"NightSky",
     "online":1,
     "type":"pitch/delay",
     "midi":1,
